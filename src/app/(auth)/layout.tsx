@@ -7,6 +7,7 @@ import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
+import SchoolLogo from '@/customComponents/SchoolLogo';
 
 
 const geistSans = Geist({
@@ -50,24 +51,22 @@ const AuthLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gray-50 grid grid-cols-3`}
+        className={cn(`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gray-50 grid grid-cols-3 relative testr`, pathname == '/register' && 'bg-[url(/images/register.jpg)] bg-cover bg-center bg-no-repeat flex items-center justify-center')}
       >
         {/* child routes */}
-        <div className='p-4 h-full flex flex-col'>
+        <div className={cn('p-4 h-full flex flex-col w-full', pathname == '/register' && 'lg:w-[900px] bg-gray-100 shadow')}>
           {/* logo */}
-          <div className="logo">
-            <p className=''>
-              Logo
-            </p>
+          <div className={cn("logo",pathname == '/register' &&'mx-auto')}>
+            <SchoolLogo/>
           </div>
 
-          <div className="children flex flex-col h-full">
+          <div className="children flex flex-col h-full w-full">
             {children}
           </div>
         </div>
         {/* hero Section */}
-        <div className={cn("heroSection col-span-2", `bg-[url(/images/register.jpg)] bg-cover bg-center bg-no-repeat h-full relative`)}>
-        </div>
+        {pathname !== '/register' && <div className={cn("heroSection col-span-2", `bg-[url(/images/register.jpg)] bg-cover bg-center bg-no-repeat h-full relative`)}>
+        </div>}
       </body>
     </html>
   )
