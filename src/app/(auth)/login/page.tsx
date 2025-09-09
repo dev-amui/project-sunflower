@@ -1,27 +1,38 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Form } from '@/components/ui/form'
-import { InputFormField, PasswordFormField } from '@/customComponents/FormFields'
+import { InputFormField, OTPFormField, PasswordFormField, PhoneNumberFormField } from '@/customComponents/FormFields'
 import ButtonLoading from '@/customComponents/Button'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
-const loginSchema = z.object({
-  email: z.string().min(1, 'Email or username is required'),
-  password: z.string().min(6, 'Password is required and must be atleast 6 characters')
+const phoneNumberSchema = z.object({
+  phoneNumber: z.string().min(1, 'Phone number is required'),
+})
+
+const otpSchema = z.object({
+  otp: z.string().min(1, 'OTP is required').min(4, 'OTP must be 4 digits'),
 })
 
 const page = () => {
+  const [currentView, setcurrentView] = useState<'Phone' | 'Otp'>('Phone')
 
-  const loginForm = useForm<z.infer<typeof loginSchema>>({
-    resolver: zodResolver(loginSchema),
+
+  const phoneNumberForm = useForm<z.infer<typeof phoneNumberSchema>>({
+    resolver: zodResolver(phoneNumberSchema),
     defaultValues: {
-      email: '',
-      password: ''
+      phoneNumber: '',
+    }
+  })
+
+  const otpForm = useForm<z.infer<typeof otpSchema>>({
+    resolver: zodResolver(otpSchema),
+    defaultValues: {
+      otp: '',
     }
   })
 
@@ -37,10 +48,11 @@ const page = () => {
           Enter your email and password to login
         </p>
       </div>
-      <Form {...loginForm}>
+      {currentView == 'Phone' ? <Form {...phoneNumberForm}>
         <form className='w-full flex flex-col gap-3 mt-10'>
-          <InputFormField form={loginForm} name='email' type='email' label="Email" />
-          <PasswordFormField form={loginForm} name='email' label="Password" />
+          <div className="inputs">
+            <PhoneNumberFormField form={phoneNumberForm} name='phoneNumber' label='Phone Number' />
+          </div>
 
           <ButtonLoading title='Login' />
         </form>
@@ -48,6 +60,19 @@ const page = () => {
           <span className='text-gray-400'>Don't have an account? Click here to</span> <Link className='text-primary' href={'/register'}>Register</Link>
         </div>
       </Form>
+        :
+        <Form {...phoneNumberForm}>
+          <form className='w-full flex flex-col gap-3 mt-10'>
+            <div className="inputs">
+              <OTPFormField form={otpForm} name='otp' maxLength={4} label='OTP' />
+            </div>
+
+            <ButtonLoading title='Submit OTP' />
+          </form>
+          <div className="login text-sm text-right mt-4 w-full">
+            <span className='text-gray-400'>Don't have an account? Click here to</span> <Link className='text-primary' href={'/register'}>Register</Link>
+          </div>
+        </Form>}
 
 
       {/* footer */}

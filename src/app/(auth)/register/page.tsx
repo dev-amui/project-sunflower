@@ -19,6 +19,10 @@ const registerSchema = z.object({
   phoneNumber: z.string()
 })
 
+const otpSchema = z.object({
+  otp: z.string().min(4, 'Must be atleast 4 digits')
+})
+
 const page = () => {
   const [currentView, setcurrentView] = useState<'OTP' | 'FORM'>('FORM')
 
@@ -26,6 +30,14 @@ const page = () => {
     resolver: zodResolver(registerSchema)
   })
 
+  const otpForm = useForm<z.infer<typeof registerSchema>>({
+    resolver: zodResolver(registerSchema)
+  })
+
+  const submitRegisterAccount = (data: any) => {
+    console.log('data', data)
+    setcurrentView('OTP')
+  }
 
   return (
     <div className="registerPage mt-4 p-4 shado border rounded-lg mb-8">
@@ -41,9 +53,9 @@ const page = () => {
       <div className="registrationPageContent grid grid-cols-2 gap-6 mt-6">
         <div className="form">
           {/* form content */}
-          <div className="formContent">
+          {currentView == 'FORM' && <div className="formContent">
             <Form {...form}>
-              <form action="" className='form space-y-3 mb-4'>
+              <form action="" className='form space-y-3 mb-4' onSubmit={form.handleSubmit(submitRegisterAccount)}>
                 <InputFormField name='firstName' form={form} label='First Name' />
                 <InputFormField name='lastName' form={form} label='Last Name' />
                 <PhoneNumberFormField name='phoneNumber' form={form} label='Phone Number' />
@@ -53,13 +65,20 @@ const page = () => {
               <div className="login text-sm text-right">
                 <span className='text-gray-400'>Already registered? Click here to</span> <Link className='text-primary' href={'/login'}>Sign in</Link>
               </div>
-            <OTPFormField form={form} name='otp' maxLength={4} />
             </Form>
-          </div>
+          </div>}
 
           {/* otp content */}
-          <div className="OtpContent">
-          </div>
+          {currentView == 'OTP' && <div className="OtpContent">
+            <Form {...otpForm}>
+              <div className="title mb-4">An OTP was sent to your contact, submit it to activate your account.</div>
+              <form action="" className='form space-y-3 mb-4'>
+                <OTPFormField form={otpForm} name='otp' maxLength={4} label='OTP' />
+
+                <ButtonLoading title='Submit OTP' className='w-full' />
+              </form>
+            </Form>
+          </div>}
         </div>
 
         {/* instructions */}
