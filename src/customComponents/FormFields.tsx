@@ -84,7 +84,44 @@ export const InputFormField = ({
   );
 };
 
-// General Input Form Field -----------------------------------------------------------------
+
+
+// General OTP Form Field -----------------------------------------------------------------
+export const OTPFormField = ({
+  form,
+  label,
+  description,
+  name,
+  disabled = false,
+  className,
+  maxLength = 4
+}: (InputFormFieldProps & { maxLength?: number })) => {
+  return (
+    <FormField
+      control={form.control}
+      name={name}
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>{label}</FormLabel>
+          <FormControl>
+            <InputOTP maxLength={maxLength} {...field} disabled={disabled} >
+              <InputOTPGroup className="w-full">
+                {Array.from({ length: maxLength }, (_, index) => (<InputOTPSlot index={index} key={index} className={cn('w-full', className)} />))}
+              </InputOTPGroup>
+            </InputOTP>
+          </FormControl>
+          <FormDescription>
+            {description}
+          </FormDescription>
+          <FormMessage className="text-left -mt-2" />
+        </FormItem>
+      )}
+    />
+  );
+};
+
+
+// General TextArea Form Field -----------------------------------------------------------------
 export const TextAreaFormField = ({
   form,
   label,
@@ -393,6 +430,7 @@ import { RadioGroupItem } from "@radix-ui/react-radio-group";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import React from "react";
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 
 interface SelectFormFieldProps {
   form: any;
@@ -657,7 +695,7 @@ export const SwitchFormField = ({
             <Switch
               checked={field.value}
               onCheckedChange={field.onChange}
-              
+
               disabled={disabled}
             />
           </FormControl>
@@ -819,9 +857,9 @@ export const CustomComboboxFormField = ({
                         }}
                       >
                         {option.customCmp &&
-                                (typeof option.customCmp === "function"
-                                  ? React.createElement(option.customCmp)
-                                  : option.customCmp)}
+                          (typeof option.customCmp === "function"
+                            ? React.createElement(option.customCmp)
+                            : option.customCmp)}
                         <Check
                           className={cn(
                             "ml-auto",

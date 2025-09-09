@@ -5,9 +5,9 @@ import { useForm } from 'react-hook-form'
 import { Dialog, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Form } from '@/components/ui/form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import React from 'react'
+import React, { useState } from 'react'
 import * as z from 'zod'
-import { InputFormField, PhoneNumberFormField } from '@/customComponents/FormFields'
+import { InputFormField, OTPFormField, PhoneNumberFormField } from '@/customComponents/FormFields'
 import ButtonLoading from '@/customComponents/Button'
 import CustomCarousel from '@/customComponents/CustomCarousel'
 import RegistrationCarousels from './partials/RegistrationCarousels'
@@ -20,6 +20,8 @@ const registerSchema = z.object({
 })
 
 const page = () => {
+  const [currentView, setcurrentView] = useState<'OTP' | 'FORM'>('FORM')
+
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema)
   })
@@ -51,7 +53,12 @@ const page = () => {
               <div className="login text-sm text-right">
                 <span className='text-gray-400'>Already registered? Click here to</span> <Link className='text-primary' href={'/login'}>Sign in</Link>
               </div>
+            <OTPFormField form={form} name='otp' maxLength={4} />
             </Form>
+          </div>
+
+          {/* otp content */}
+          <div className="OtpContent">
           </div>
         </div>
 
