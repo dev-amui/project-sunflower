@@ -27,7 +27,7 @@ const SchoolLogo = ({ className, onClick, size, src }: ISchoolLogo) => {
 
     return (
         <div className={cn('schoolLogo')}>
-            <img src={src ? src : '/images/sunflowerSchoolsLogo.webp'} alt="school Logo" className={cn('size-20', size && `size-${size}`, className)} onClick={handleOnClick} />
+            <img src={src ? src : '/images/sunflowerSchoolsLogo.webp'} alt="school Logo" className={cn('size-18', size && `size-${size}`, className)} onClick={handleOnClick} />
         </div>
     )
 }

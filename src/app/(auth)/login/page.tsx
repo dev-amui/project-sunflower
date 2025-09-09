@@ -8,6 +8,7 @@ import { Form } from '@/components/ui/form'
 import { InputFormField, PasswordFormField } from '@/customComponents/FormFields'
 import ButtonLoading from '@/customComponents/Button'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 const loginSchema = z.object({
   email: z.string().min(1, 'Email or username is required'),
@@ -43,7 +44,9 @@ const page = () => {
 
           <ButtonLoading title='Login' />
         </form>
-        <Button variant="link" className='self-end cursor-pointer'>Forgot Password</Button>
+        <div className="login text-sm text-right mt-4 w-full">
+          <span className='text-gray-400'>Don't have an account? Click here to</span> <Link className='text-primary' href={'/register'}>Register</Link>
+        </div>
       </Form>
 
 
@@ -51,11 +54,11 @@ const page = () => {
       <div className="footer mt-4">
         <p className="text-sm text-gray-500 ">
           By signing in or creating an account, you agree to our{' '}
-          <a href="/terms" className="text-blue-500 underline">
+          <a href="/terms" className="text-primary underline">
             Terms of Service
           </a>{' '}
           and{' '}
-          <a href="/privacy" className="text-blue-500 underline">
+          <a href="/privacy" className="text-primary underline">
             Privacy Policy
           </a>.
         </p>
