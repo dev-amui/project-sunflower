@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -10,6 +10,7 @@ import ButtonLoading from '@/customComponents/Button'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { OtpResendTimer } from '@/customComponents/OTPResetTimer'
+import ProgressBarComponent from '@/customComponents/ProgressBarComponent'
 
 const phoneNumberSchema = z.object({
   phoneNumber: z.string().min(1, 'Phone number is required'),
@@ -20,8 +21,8 @@ const otpSchema = z.object({
 })
 
 const page = () => {
-  const [currentView, setcurrentView] = useState<'Phone' | 'Otp'>('Otp')
-
+  const [currentView, setcurrentView] = useState<'Phone' | 'Otp'>('Phone')
+  const progressBarRef = useRef<any>(null)
 
   const phoneNumberForm = useForm<z.infer<typeof phoneNumberSchema>>({
     resolver: zodResolver(phoneNumberSchema),
@@ -41,6 +42,11 @@ const page = () => {
     console.log('resend OTP')
   }
 
+  const handleSumbit = (data: any) => {
+    setcurrentView('Otp')
+    progressBarRef?.current?.next?.()
+  }
+
   return (
     <div className='flex flex-col justify-center items-center w-[500px] mx-auto h-full'>
       <div className="headerSection text-left  w-full">
@@ -53,13 +59,18 @@ const page = () => {
           Enter your email and password to login
         </p>
       </div>
+
+
+      {/* steps reached */}
+      <ProgressBarComponent steps={[1, 2]} progressBarClass='w-full' ref={progressBarRef}/>
+
       {currentView == 'Phone' ? <Form {...phoneNumberForm}>
-        <form className='w-full flex flex-col gap-3 mt-10'>
+        <form className='w-full flex flex-col gap-3 mt-10' onSubmit={phoneNumberForm.handleSubmit(handleSumbit)}>
           <div className="inputs">
             <PhoneNumberFormField form={phoneNumberForm} name='phoneNumber' label='Phone Number' />
           </div>
 
-          <ButtonLoading title='Login' />
+          <ButtonLoading title='Submit' />
         </form>
         <div className="login text-sm text-right mt-4 w-full">
           <span className='text-gray-400'>Don't have an account? Click here to</span> <Link className='text-primary' href={'/register'}>Register</Link>
