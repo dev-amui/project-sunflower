@@ -12,6 +12,7 @@ import ButtonLoading from '@/customComponents/Button'
 import CustomCarousel from '@/customComponents/CustomCarousel'
 import RegistrationCarousels from './partials/RegistrationCarousels'
 import Link from 'next/link'
+import { OtpResendTimer } from '@/customComponents/OTPResetTimer'
 
 const registerSchema = z.object({
   firstName: z.string().min(1, 'First name is required'),
@@ -37,6 +38,10 @@ const page = () => {
   const submitRegisterAccount = (data: any) => {
     console.log('data', data)
     setcurrentView('OTP')
+  }
+
+  const handleResendOTP = () => {
+    console.log('resend OTP')
   }
 
   return (
@@ -77,6 +82,11 @@ const page = () => {
 
                 <ButtonLoading title='Submit OTP' className='w-full' />
               </form>
+
+              {/* resend otp */}
+              <div className="login text-sm text-right mt-4 w-full flex justify-end items-center h-[35px]">
+                <OtpResendTimer duration={2} onResend={handleResendOTP} />
+              </div>
             </Form>
           </div>}
         </div>

@@ -9,6 +9,7 @@ import { InputFormField, OTPFormField, PasswordFormField, PhoneNumberFormField }
 import ButtonLoading from '@/customComponents/Button'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { OtpResendTimer } from '@/customComponents/OTPResetTimer'
 
 const phoneNumberSchema = z.object({
   phoneNumber: z.string().min(1, 'Phone number is required'),
@@ -19,7 +20,7 @@ const otpSchema = z.object({
 })
 
 const page = () => {
-  const [currentView, setcurrentView] = useState<'Phone' | 'Otp'>('Phone')
+  const [currentView, setcurrentView] = useState<'Phone' | 'Otp'>('Otp')
 
 
   const phoneNumberForm = useForm<z.infer<typeof phoneNumberSchema>>({
@@ -35,6 +36,10 @@ const page = () => {
       otp: '',
     }
   })
+
+  const handleResendOTP = () => {
+    console.log('resend OTP')
+  }
 
   return (
     <div className='flex flex-col justify-center items-center w-[500px] mx-auto h-full'>
@@ -69,8 +74,10 @@ const page = () => {
 
             <ButtonLoading title='Submit OTP' />
           </form>
-          <div className="login text-sm text-right mt-4 w-full">
-            <span className='text-gray-400'>Don't have an account? Click here to</span> <Link className='text-primary' href={'/register'}>Register</Link>
+
+          {/* resend otp */}
+          <div className="login text-sm text-right mt-4 w-full flex justify-end items-center h-[35px]">
+            <OtpResendTimer duration={2} onResend={handleResendOTP} />
           </div>
         </Form>}
 
