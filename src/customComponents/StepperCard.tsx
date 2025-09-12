@@ -44,9 +44,6 @@ export default function StepperCard({ title, description, steps, rightBtnClicked
         }
     }, []);
 
-
-
-
     const totalSteps = steps.length
 
     // step label height manipulation
@@ -94,21 +91,21 @@ export default function StepperCard({ title, description, steps, rightBtnClicked
     return (
         <div className="w-full mx-auto h-full overflow-hidden">
             <Card className="h-full flex flex-col py-1" >
-                <CardContent className="p-4 flex flex-col justify-between h-full gap-4  overflow-hidden">
+                <CardContent className="p-4 flex flex-col h-full min-h-0">
                     {/* Stepper Header */}
-                    <div className="mb-8 ">
+                    <div className="shrink-0">
                         {title && <h2 className={cn("text-2xl font-bold text-center mb-4", !description && 'mb-8')}>{title}</h2>}
                         {/* stepper description */}
                         {description && <p className="text-gray-600 text-center mb-8">{description}</p>}
 
                         {/* Progress Bar Container */}
-                        <div className="relative  ">
+                        <div className="relative mb-8">
                             {/* Background Progress Bar */}
                             <div className="absolute top-1/2 left-0 right-0 h-2 bg-gray-200 rounded-full transform -translate-y-1/2 z-0"></div>
 
                             {/* Animated Progress Bar */}
                             <div
-                                className="absolute top-1/2 left-0 h-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transform -translate-y-1/2 z-10 transition-all duration-700 ease-in-out"
+                                className="absolute top-1/2 left-0 h-2 bg-gradient-to-r from-primary/60 to-primary/80 rounded-full transform -translate-y-1/2 z-10 transition-all duration-700 ease-in-out"
                                 style={{ width: `${progressPercentage}%` }}
                             ></div>
 
@@ -125,9 +122,9 @@ export default function StepperCard({ title, description, steps, rightBtnClicked
                                                 className={`
                         w-10 h-10 rounded-full border-4 flex hover:scale-110 items-center justify-center font-semibold text-sm
                         transition-all duration-500 ease-in-out transform ${status === "completed"
-                                                        ? "bg-blue-600 border-blue-600 text-white shadow-lg"
+                                                        ? "bg-primary/80 border-primary/80 text-white shadow-lg"
                                                         : status === "current"
-                                                            ? "bg-white border-blue-600 text-blue-600 shadow-lg ring-4 ring-blue-100"
+                                                            ? "bg-white border-primary/80 text-primary/80 shadow-lg ring-4 ring-blue-100"
                                                             : "bg-white border-gray-300 text-gray-400 hover:border-gray-400"
                                                     }
                       `}
@@ -137,29 +134,24 @@ export default function StepperCard({ title, description, steps, rightBtnClicked
                                                 ) : (
                                                     <span className="animate-in fade-in duration-300">{step.id}</span>
                                                 )}
-
-
                                             </button>
-
 
                                             {/* step label */}
                                             <div ref={el => { itemLabelRefs.current[idx] = el }} key={step.id} style={{
                                                 width: `${(containerWidth / steps.length) - 45}px`,
-                                            }} className={cn(`itemLabel  flex- absolute top-14`, idx === 0 ? "text-left left-0" : idx === steps.length - 1 ? "text-right right-0" : "text-center right-1/2 translate-x-1/2")}>
+                                            }} className={cn(`itemLabel flex- absolute top-14`, idx === 0 ? "text-left left-0" : idx === steps.length - 1 ? "text-right right-0" : "text-center right-1/2 translate-x-1/2")}>
                                                 <h3
                                                     className={`
                       text-sm font-medium transition-colors duration-300
-                      ${status === "current" ? "text-blue-600" : status === "completed" ? "text-blue-600" : "text-gray-500"}
+                      ${status === "current" ? "text-primary/80" : status === "completed" ? "text-primary/80" : "text-gray-500"}
                     `}
                                                 >
                                                     {step.title}
                                                 </h3>
                                                 <p
-                                                    className={`                                                    {step.title}
-                                                    {step.title}
-
+                                                    className={`
                       text-xs mt-1 transition-colors duration-300
-                      ${status === "current" ? "text-blue-500" : status === "completed" ? "text-blue-500" : "text-gray-400"}
+                      ${status === "current" ? "text-primary/60" : status === "completed" ? "text-primary/60" : "text-gray-400"}
                     `}
                                                 >
                                                     {step.description}
@@ -170,34 +162,30 @@ export default function StepperCard({ title, description, steps, rightBtnClicked
                                 })}
                             </div>
                         </div>
-
-
                     </div>
 
-
-
-
-                    {/* Step Content */}
-                    <div className="stepContentMain !overflow-y-auto mb-8 h-full " style={{ marginTop: maxLabelHeight }}>
-                        <div className="animate-in slide-in-from-right-5 fade-in duration-500">
-
+                    {/* Step Content - Takes up remaining space */}
+                    <div 
+                        className="flex-1 overflow-y-auto min-h-0" 
+                        style={{ marginTop: maxLabelHeight }}
+                    >
+                        <div className="h-full animate-in slide-in-from-right-5 fade-in duration-500">
                             {/*step content */}
-                            <div className="stepContent">
+                            <div className="stepContent h-full">
                                 {steps[currentStep - 1].content}
                             </div>
                         </div>
                     </div>
 
                     {/* Navigation Buttons */}
-                    <div className="flex items-center justify-between flex-wrap">
+                    <div className="flex items-center justify-between flex-wrap shrink-0 mt-4">
                         <div className="flex-1"></div>
 
                         <div className="flex flex-1 justify-center items-center gap-2 text-sm text-gray-500">
                             Step {currentStep} of {totalSteps}
                         </div>
 
-
-                        <div className="stepControls flex-1 flex items-center justify-end gap-4 ">
+                        <div className="stepControls flex-1 flex items-center justify-end gap-4">
                             {/* prev */}
                             <Button
                                 variant="outline"
@@ -220,7 +208,6 @@ export default function StepperCard({ title, description, steps, rightBtnClicked
                                 {currentStep !== totalSteps && <ChevronRight className="w-4 h-4" />}
                             </Button>
                         </div>
-
                     </div>
                 </CardContent>
             </Card>
