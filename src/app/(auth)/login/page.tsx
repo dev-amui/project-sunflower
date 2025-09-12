@@ -47,9 +47,9 @@ const Page = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center w-[500px] mx-auto h-full">
+    <div className="flex flex-col justify-center items-center mx-auto h-full p-2">
       {/* Header */}
-      <div className="headerSection text-left w-full">
+      <div className="headerSection w-full mt-6 text-center">
         <p className="header">Welcome Back</p>
         <p className="description mt-1 text-gray-500">
           Enter your email and password to login
@@ -57,12 +57,12 @@ const Page = () => {
       </div>
 
       {/* Stepper */}
-      <div className="stepperProgress w-full mt-6">
+      <div className="stepperProgress w-full mt-10">
         <ProgressBarComponent steps={[1, 2]} progressBarClass="w-full" ref={progressBarRef} />
       </div>
 
       {/* Animated Views */}
-      <div className="relative w-full h-[250px] overflow-hidden mt-4">
+      <div className="relative w-full h-[250px] overflow-hidden mt-6">
         {/* Phone View */}
         <div
           className={`absolute top-0 left-0 w-full transition-transform duration-500 ease-in-out

@@ -51,13 +51,13 @@ const AuthLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
       <body
-        className={cn(`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gray-50 grid grid-cols-3 relative`, pathname == '/register' && 'bg-[url(/images/register.jpg)] bg-cover bg-center bg-no-repeat flex items-center justify-center')}
+        className={cn(`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gray-50 grid grid-cols-3 relative`, (pathname == '/register' || pathname == '/login') && 'bg-[url(/images/register.jpg)] bg-cover bg-center bg-no-repeat flex items-center justify-center')}
       >
         {/* child routes */}
-        <div className={cn('p-4 h-full flex flex-col w-full', pathname == '/register' && 'lg:w-[900px] bg-white shadow rounded-lg')}>
+        <div className={cn('p-4 h-full flex flex-col w-full', (pathname == '/register' || pathname == '/login') && 'lg:w-[900px] bg-white shadow rounded-lg',pathname == '/login'&&'lg:w-[500px]')}>
           {/* logo */}
-          <div className={cn("logo",pathname == '/register' &&'mx-auto')}>
-            <SchoolLogo/>
+          <div className={cn("logo", (pathname == '/register' || pathname == '/login') && 'mx-auto')}>
+            <SchoolLogo />
           </div>
 
           <div className="children flex flex-col h-full w-full">
