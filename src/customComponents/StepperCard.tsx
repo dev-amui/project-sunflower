@@ -19,15 +19,31 @@ export interface IStep {
 
 export interface IStepperCardProps {
     steps: IStep[]
+    defaultStep?: number
+    getCurrentStep?: (val: number) => void
     title?: string,
+    classNames?: {
+        mainContainerClass?: string,
+        cardClass?: string,
+        contentContainerClass?: string,
+        contentClass?: string,
+    }
     description?: string | React.ReactNode
     rightBtnClicked: (callback: () => void) => void
     leftBtnClicked: (callback: () => void) => void
 }
 
-export default function StepperCard({ title, description, steps, rightBtnClicked, leftBtnClicked }: IStepperCardProps) {
+export default function StepperCard({ title, classNames, description, steps, getCurrentStep, defaultStep, rightBtnClicked, leftBtnClicked }: IStepperCardProps) {
     const [currentStep, setCurrentStep] = useState(1)
     const [completedSteps, setCompletedSteps] = useState<number[]>([])
+
+    // send the current step to the parent component
+    useEffect(() => {
+        getCurrentStep?.(currentStep)
+        return () => {
+        }
+    }, [currentStep])
+
 
     // stepper container manipulation
     // This is used to calculate the width of the stepper container for responsive design
@@ -89,8 +105,8 @@ export default function StepperCard({ title, description, steps, rightBtnClicked
     const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100
 
     return (
-        <div className="w-full mx-auto h-full overflow-hidden">
-            <Card className="h-full flex flex-col py-1" >
+        <div className={cn("w-full mx-auto h-full overflow-hidden", classNames?.mainContainerClass)}>
+            <Card className={cn("h-full flex flex-col py-1", classNames?.cardClass)} >
                 <CardContent className="p-4 flex flex-col h-full min-h-0">
                     {/* Stepper Header */}
                     <div className="shrink-0">
@@ -122,7 +138,7 @@ export default function StepperCard({ title, description, steps, rightBtnClicked
                                                 className={`
                         w-10 h-10 rounded-full border-4 flex hover:scale-110 items-center justify-center font-semibold text-sm
                         transition-all duration-500 ease-in-out transform ${status === "completed"
-                                                        ? "bg-primary/80 border-primary/80 text-white shadow-lg"
+                                                        ? "bg-primary/90 backdrop-blur-xl border-primary/80 text-white shadow-lg"
                                                         : status === "current"
                                                             ? "bg-white border-primary/80 text-primary/80 shadow-lg ring-4 ring-blue-100"
                                                             : "bg-white border-gray-300 text-gray-400 hover:border-gray-400"
@@ -165,13 +181,13 @@ export default function StepperCard({ title, description, steps, rightBtnClicked
                     </div>
 
                     {/* Step Content - Takes up remaining space */}
-                    <div 
-                        className="flex-1 overflow-y-auto min-h-0" 
+                    <div
+                        className={cn("flex-1 overflow-y-auto min-h-0", classNames?.contentContainerClass)}
                         style={{ marginTop: maxLabelHeight }}
                     >
                         <div className="h-full animate-in slide-in-from-right-5 fade-in duration-500">
                             {/*step content */}
-                            <div className="stepContent h-full">
+                            <div className={cn("stepContent h-full", classNames?.contentClass)}>
                                 {steps[currentStep - 1].content}
                             </div>
                         </div>
@@ -194,7 +210,7 @@ export default function StepperCard({ title, description, steps, rightBtnClicked
                                 className="flex items-center gap-2 transition-all duration-200 bg-transparent"
                             >
                                 <ChevronLeft className="w-4 h-4" />
-                                {steps[currentStep]?.leftControlBtnLabel ? steps[currentStep].leftControlBtnLabel : 'Previous'}
+                                {steps[currentStep-1]?.leftControlBtnLabel ? steps[currentStep-1].leftControlBtnLabel : 'Previous'}
                             </Button>
 
                             {/* next */}
@@ -204,7 +220,7 @@ export default function StepperCard({ title, description, steps, rightBtnClicked
                                 // disabled={currentStep === totalSteps}
                                 className="flex items-center gap-2 transition-all duration-200"
                             >
-                                {steps[currentStep]?.rightControlBtnLabel ? steps[currentStep].rightControlBtnLabel : (currentStep === totalSteps ? "Complete" : "Next")}
+                                {steps[currentStep-1]?.rightControlBtnLabel ? steps[currentStep-1].rightControlBtnLabel : (currentStep === totalSteps ? "Complete" : "Next")}
                                 {currentStep !== totalSteps && <ChevronRight className="w-4 h-4" />}
                             </Button>
                         </div>

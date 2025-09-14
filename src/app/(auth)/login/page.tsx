@@ -52,7 +52,7 @@ const Page = () => {
       <div className="headerSection w-full mt-6 text-center">
         <p className="header">Welcome Back</p>
         <p className="description mt-1 text-gray-500">
-          Enter your email and password to login
+          Enter your Phone Number to login
         </p>
       </div>
 
