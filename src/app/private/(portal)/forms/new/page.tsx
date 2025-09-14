@@ -4,6 +4,7 @@ import StepperCard, { IStep } from '@/customComponents/StepperCard';
 import React, { useEffect, useState } from 'react'
 import GuardianForm from './partials/GuardianForm';
 import ChildForm from './partials/ChildForm';
+import FormPaymentForm from './partials/FormPaymentForm';
 
 const FormSteps: IStep[] = [
   {
@@ -25,7 +26,7 @@ const FormSteps: IStep[] = [
   {
     title: 'Payment Form',
     id: 3,
-    content: <GuardianForm />,
+    content: <FormPaymentForm />,
     // description: 'Some descriptions',
     leftControlBtnLabel: 'Cancel',
     rightControlBtnLabel: 'Submit'
