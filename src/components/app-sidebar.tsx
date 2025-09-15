@@ -40,108 +40,41 @@ const data = {
       logo: GalleryVerticalEnd,
       plan: "Enterprise",
     },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
-    },
+    // {
+    //   name: "Acme Corp.",
+    //   logo: AudioWaveform,
+    //   plan: "Startup",
+    // },
+    // {
+    //   name: "Evil Corp.",
+    //   logo: Command,
+    //   plan: "Free",
+    // },
   ],
   navMain: [
     {
       title: "Dashboard",
-      url: "/private/dashboard",
-      baseUrl: "/private/dashboard",
+      url: "/private/admin/dashboard",
+      baseUrl: "/private/admin/dashboard",
       icon: SquareTerminal,
       isActive: true,
-      // items: [
-      //   {
-      //     title: "History",
-      //     url: "#",
-      //   },
-      //   {
-      //     title: "Starred",
-      //     url: "#",
-      //   },
-      //   {
-      //     title: "Settings",
-      //     url: "#",
-      //   },
-      // ],
     },
     {
-      title: "Products/Services Hub",
-      url: "/private/catalog/products/list",
-      baseUrl: "/private/catalog",
+      title: "Applications",
+      url: "/private/admin/applications/overview",
+      baseUrl: "/private/admin/applications",
       icon: HandPlatter,
       isActive: false,
       items: [
         {
-          title: "Product Management",
-          url: "/private/catalog/products/list",
-          baseUrl: "/private/catalog/products",
+          title: "Applications Overview",
+          url: "/private/admin/applications/overview",
+          baseUrl: "/private/admin/applications/overview",
         },
-        {
-          title: "Service Management",
-          url: "/private/catalog/services/list",
-          baseUrl: "/private/catalog/services",
-        },
-        {
-          title: "Stock Management",
-          url: "/private/catalog/stocks/overview",
-          baseUrl: "/private/catalog/stocks",
-        },
-      ],
-    },
-    {
-      title: "Market Place",
-      url: "#",
-      icon: Store,
-      isActive: false,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Marketing",
-      url: "#",
-      icon: Megaphone,
-      isActive: false,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
+         {
+          title: "Applications List",
+          url: "/private/admin/applications/list",
+          baseUrl: "/private/admin/applications/list",
         },
       ],
     },
@@ -155,27 +88,22 @@ const data = {
         {
           title: "Profile Settings",
           url: "/private/settings/user-profile",
-          baseUrl: "/private/settings/user-profile",
+          baseUrl: "/private/admin/settings/user-profile",
         },
         {
-          title: "Business Settings",
-          url: "/private/settings/business-settings",
-          baseUrl: "/private/settings/business-settings",
-        },
-        {
-          title: "Store Configuration",
-          url: "/private/settings/store-configuration",
-          baseUrl: "/private/settings/store-configuration",
+          title: "Term Configurations",
+          url: "/private/admin/settings/business-settings",
+          baseUrl: "/private/admin/settings/business-settings",
         },
         {
           title: "User Management",
-          url: "/private/settings/user-management",
-          baseUrl: "/private/settings/user-management",
+          url: "/private/admin/settings/user-management",
+          baseUrl: "/private/admin/settings/user-management",
         },
         {
           title: "Notifications",
-          url: "/private/settings/notifications",
-          baseUrl: "/private/settings/notifications",
+          url: "/private/admin/settings/notifications",
+          baseUrl: "/private/admin/settings/notifications",
         },
       ],
     },

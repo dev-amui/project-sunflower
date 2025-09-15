@@ -62,7 +62,7 @@ const CustomLinkTabs = <T extends { title: any; link: any }>({ tabs, clicked }: 
                 <nav className="-mb-px flex relative overflow-x-auto">
                     {
                         tabs.map((tab, idx) => (
-                            <Link href={tab.link} key={tab.title} legacyBehavior>
+                            <Link href={tab.link} key={tab.title}>
                                 <button
                                     ref={(el) => { tabRefs.current[tab.title] = el; }}
                                     onClick={() => handleTabClick(tab)}

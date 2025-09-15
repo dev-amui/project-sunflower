@@ -1,0 +1,39 @@
+'use client';
+
+import EnrollmentApplicationsTabs from "@/customComponents/EnrollmentApplicationsTabs";
+import SettingsTabs from "@/customComponents/SettingsTabs"
+
+export default function SettingsLayout({
+    children,
+}: {
+    children: React.ReactNode
+}) {
+    return (
+        <html lang="en">
+            <body>
+
+                <div>
+                    {/* Layout UI */}
+                    {/* Place children where you want to render a page or nested layout */}
+                    {/* header */}
+                    <div className="layoutContainer p-4 h-full flex flex-col mb-10">
+                        <div className="headerText">
+                            <p className="subHeader text-[24px] text-darkGrey">
+                                Applications
+                            </p>
+
+                            <p className='subText text-base mt-2 text-darkGrey'>Manage all student enrollment applications here.</p>
+                        </div>
+
+                        {/* tabs */}
+                        <div className="tabs my-6 h-[36px] sticky top-0 z-10 bg-[#f8f8fb]">
+                            <EnrollmentApplicationsTabs />
+                        </div>
+                        <main className="w-full h-full">{children}</main>
+
+                    </div>
+                </div>
+            </body>
+        </html>
+    )
+}

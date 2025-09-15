@@ -64,7 +64,7 @@ export type TopNavBarLinksProps =
 const SingleLink = ({ title, href, className }: { title: string; href: string, className?: string }) => {
     return (
         <NavigationMenuItem>
-            <Link href={href} legacyBehavior passHref className={className}>
+            <Link href={href} passHref className={className}>
                 <NavigationMenuLink className={navigationMenuTriggerStyle() + ' ' + className}>
                     {title}
                 </NavigationMenuLink>

@@ -42,27 +42,13 @@ const data = {
     },
   ],
   navMain: [
-    {
-      title: "Dashboard",
-      url: "/private/dashboard",
-      baseUrl: "/private/dashboard",
-      icon: SquareTerminal,
-      isActive: true,
-      // items: [
-      //   {
-      //     title: "History",
-      //     url: "#",
-      //   },
-      //   {
-      //     title: "Starred",
-      //     url: "#",
-      //   },
-      //   {
-      //     title: "Settings",
-      //     url: "#",
-      //   },
-      // ],
-    },
+    // {
+    //   title: "Dashboard",
+    //   url: "/private/dashboard",
+    //   baseUrl: "/private/dashboard",
+    //   icon: SquareTerminal,
+    //   isActive: true,
+    // },
     {
       title: "Forms",
       url: "/private/forms/list",

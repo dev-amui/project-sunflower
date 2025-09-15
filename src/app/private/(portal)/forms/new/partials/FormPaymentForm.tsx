@@ -5,10 +5,18 @@ import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Form } from '@/components/ui/form'
-import { InputFormField } from '@/customComponents/FormFields'
+import { InputFormField, SwitchFormField } from '@/customComponents/FormFields'
 import AppDivider from '@/customComponents/AppDivider'
 
 const paymentSchema = z.object({
+  // if payment was made offline
+  paidOffline: z.boolean(),
+  receiptNumber: z.string(),
+  receiptImage: z.any(),
+
+  // if payment was made online
+  paymentType:z.enum(['MOBILE_MONEY','VISA_CARD']),
+  email:z.string().email(),
 })
 
 const FormPaymentForm = () => {
@@ -35,6 +43,10 @@ const FormPaymentForm = () => {
               <div className="mt-2">
                 <AppDivider text='Parent/Guardian Information' position='center' className='' />
               </div>
+
+              {/* switch */}
+              <SwitchFormField form={paymentForm} name='' />
+
               <div className="guardianInfo grid grid-cols-2 gap-4">
                 <InputFormField form={paymentForm} name='firstName' label='First Name' />
               </div>
