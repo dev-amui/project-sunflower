@@ -66,7 +66,7 @@ const CustomLinkTabs = <T extends { title: any; link: any }>({ tabs, clicked }: 
                                 <button
                                     ref={(el) => { tabRefs.current[tab.title] = el; }}
                                     onClick={() => handleTabClick(tab)}
-                                    className={`py-2 px-3 text-sm font-medium min-w-fit transition-colors relative z-10 ${activeTab.title === tab.title ? "text-blue-600" : "text-gray-500 hover:text-gray-700"
+                                    className={`py-2 px-3 text-sm font-medium min-w-fit transition-colors relative z-10 ${activeTab.title === tab.title ? "text-primary" : "text-gray-500 hover:text-gray-700"
                                         }`}
                                 >
                                     {tab.title}
@@ -78,7 +78,7 @@ const CustomLinkTabs = <T extends { title: any; link: any }>({ tabs, clicked }: 
 
                     {/* Animated border */}
                     <div
-                        className="absolute bottom-0 h-0.5 bg-blue-500 transition-all duration-300 ease-in-out"
+                        className="absolute bottom-0 h-0.5 bg-primary transition-all duration-300 ease-in-out"
                         style={{
                             left: `${borderStyle.left}px`,
                             width: `${borderStyle.width}px`,

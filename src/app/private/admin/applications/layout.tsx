@@ -9,8 +9,8 @@ export default function SettingsLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
-            <body>
+        // <html lang="en">
+        //     <body>
 
                 <div>
                     {/* Layout UI */}
@@ -33,7 +33,7 @@ export default function SettingsLayout({
 
                     </div>
                 </div>
-            </body>
-        </html>
+        //     </body>
+        // </html>
     )
 }
