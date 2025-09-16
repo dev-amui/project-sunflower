@@ -87,7 +87,7 @@ const PrivateLayout = ({ children }: { children: ReactNode }) => {
               {/* portal where child routes are mounted */}
               <div className="flex flex-1 flex-col w-full h-full bg-[#F8F8FB] overflow-y-auto mx-auto overflow-x-hidden">
                 <PrivateLayoutLocal>
-                  <div className='h-full w-full'>
+                  <div className='h-full w-full flex flex-col'>
                     {children}
                   </div>
                 </PrivateLayoutLocal>
