@@ -5,6 +5,7 @@ import ButtonLoading from '@/customComponents/Button';
 import DataTable from '@/customComponents/datatable';
 import { ColumnDef } from '@tanstack/react-table';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 const enlistmentFormData = [
@@ -21,6 +22,7 @@ const enlistmentFormData = [
 ]
 
 const page = () => {
+  const router = useRouter()
 
   const formColumns: ColumnDef<typeof enlistmentFormData[number]>[] =
     [
@@ -87,7 +89,7 @@ const page = () => {
           </div> */}
           {/* right side */}
           <div className="rightSide">
-            <ButtonLoading title='Add Form' leftIcon='formkit:add' className='cursor-pointer w-fit' onClick={() => { }} />
+            <ButtonLoading title='Add Form' leftIcon='formkit:add' className='cursor-pointer w-fit' onClick={() => { router.push('/private/forms/new') }} />
           </div>
         </div>} columns={formColumns} data={enlistmentFormData} totalPages={1} addFiltering />
       </div>

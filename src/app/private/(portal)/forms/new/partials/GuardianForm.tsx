@@ -6,7 +6,7 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Form } from '@/components/ui/form'
 import AppDivider from '@/customComponents/AppDivider';
-import { InputFormField, PhoneNumberFormField } from '@/customComponents/FormFields';
+import { InputFormField, PhoneNumberFormField, SelectFormField } from '@/customComponents/FormFields';
 
 const guardianSchema = z.object({
   firstName: z.string(),
@@ -15,6 +15,7 @@ const guardianSchema = z.object({
   placeOfWork: z.string(),
   address: z.string(),
   phoneNumber: z.string(),
+  emergencyContact: z.string(),
   email: z.string(),
   residence: z.string()
 })
@@ -49,7 +50,9 @@ const GuardianForm = () => {
                 <InputFormField form={guardianForm} name='address' label='Address' />
                 <InputFormField form={guardianForm} name='residence' label='Place of Residence' />
                 <InputFormField form={guardianForm} name='email' label='Email' />
+                <SelectFormField form={guardianForm} name='relationship' label='Relationship' options={[]} />
                 <PhoneNumberFormField form={guardianForm} name="phoneNumber" label="Phone Number" />
+                <PhoneNumberFormField form={guardianForm} name="emergencyContact" label="Emergency Contact" />
               </div>
 
               <div className="mt-8">
