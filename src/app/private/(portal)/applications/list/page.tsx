@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react'
+import ApplicationCard from '../partials/ApplicationCard';
 
 const page = () => {
   return (
@@ -11,12 +12,14 @@ const page = () => {
           Applications List
         </p>
 
-        <p className='subText text-base mt-2 text-darkGrey'>Manage all your submitted application forms here.</p>
+        <p className='subText text-base mt-2 text-darkGrey'>Manage all your submitted and ongoing application forms here.</p>
       </div>
 
       {/* application cards */}
-      <div className="applicationCards mt-10 bg-white h-10">
-
+      <div className="applicationCards mt-10 bg-gradient-to-r from-primary/5 to-primary/10 grid grid-cols-3 gap-4 p-4">
+        <ApplicationCard />
+        <ApplicationCard />
+        <ApplicationCard />
       </div>
     </div>
   )
