@@ -7,7 +7,7 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Form } from '@/components/ui/form'
 import AppDivider from '@/customComponents/AppDivider';
-import { InputFormField, PhoneNumberFormField, SelectFormField } from '@/customComponents/FormFields';
+import { InputFormField, PhoneNumberFormField, SelectFormField, TextAreaFormField } from '@/customComponents/FormFields';
 import { AVAILABLE_CLASSES } from '@/constants/FormConstants';
 import IconifyIcon from '@/customComponents/IconifyIcon';
 
@@ -54,7 +54,17 @@ const ChildForm = () => {
                                         <AppDivider text='Application Information' position='center' />
                                     </div>
                                     <div className="applicationInfo grid grid-cols-2 gap-4">
-                                        <SelectFormField form={childForm} name='occupation' label='Class' options={AVAILABLE_CLASSES} />
+                                        <SelectFormField form={childForm} name='occupation' label='Class applying to' options={AVAILABLE_CLASSES} />
+                                        <InputFormField form={childForm} name='previousSchool' label='Previous School' />
+                                        <InputFormField form={childForm} name='previousSchoolLocation' label='Previous School Location' />
+                                    </div>
+
+                                    <div className="mt-8">
+                                        <AppDivider text='Additional Information' position='center' />
+                                    </div>
+                                    <div className="applicationInfo grid grid-cols-2 gap-4">
+                                        <TextAreaFormField form={childForm} name='medicalInformation' label='Medical Information' />
+                                        <TextAreaFormField form={childForm} name='additionalNotes' label='Additional Information' />
                                     </div>
                                 </div>
                             </section>
@@ -65,6 +75,28 @@ const ChildForm = () => {
                                     <div className="mt-2">
                                         <AppDivider text="Child/Ward's Files" position='center' className='' />
                                         <div className="fileUploadContainer mt-4 grid grid-cols-2 gap-4">
+                                            {/* PAssport pics */}
+                                            <div className="termReports col-span-2 grid grid-cols-2 gap-4">
+                                                {/* Term reports */}
+                                                <div className="imageSelection ">
+                                                    <label htmlFor='productImages' className=' flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive'>Passport pics <span className='text-red-500'>*</span></label>
+                                                    <div className="selectionContainer bg-[#F7F9FF] h-[100px] border border-dashed mt-2 rounded flex flex-col items-center justify-center gap-2">
+                                                        {/* image icon */}
+                                                        <IconifyIcon icon='mage:image-upload' fontSize={40} className='text-lg text-blue-600' />
+                                                        <div className="textSection text-center">
+                                                            <p className='text-sm'> <label className='text-blue-600' htmlFor='productImages'>Click here</label> to upload or drag and drop</p>
+                                                            <p className='text-xs'>Maximum file size 2MB</p>
+                                                            <input type='file' className='hidden' id='productImages' />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {/* file list */}
+                                                <div className="fileLists bg-gray-50">
+
+                                                </div>
+                                            </div>
+
                                             {/* Inoculation or Weighing Form */}
                                             <div className="imageSelection ">
                                                 <label htmlFor='productImages' className=' flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive'>Inoculation/Weighing Certificate <span className='text-red-500'>*</span></label>
@@ -97,7 +129,7 @@ const ChildForm = () => {
                                             <div className="termReports col-span-2 grid grid-cols-2 gap-4">
                                                 {/* Term reports */}
                                                 <div className="imageSelection ">
-                                                    <label htmlFor='productImages' className=' flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive'>Product images <span className='text-red-500'>*</span></label>
+                                                    <label htmlFor='productImages' className=' flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive'>Term Reports <span className='text-red-500'>*</span></label>
                                                     <div className="selectionContainer bg-[#F7F9FF] h-[100px] border border-dashed mt-2 rounded flex flex-col items-center justify-center gap-2">
                                                         {/* image icon */}
                                                         <IconifyIcon icon='mage:image-upload' fontSize={40} className='text-lg text-blue-600' />
@@ -111,13 +143,13 @@ const ChildForm = () => {
 
                                                 {/* file list */}
                                                 <div className="fileLists bg-gray-50">
-                            
+
                                                 </div>
                                             </div>
 
                                             {/* Passport Pic */}
                                             <div className="imageSelection ">
-                                                <label htmlFor='productImages' className=' flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive'>Original Birth Certificate <span className='text-red-500'>*</span></label>
+                                                <label htmlFor='productImages' className=' flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 data-[error=true]:text-destructive'>Testimonial from previous school <span className='text-red-500'>*</span></label>
                                                 <div className="selectionContainer bg-[#F7F9FF] h-[100px] border border-dashed mt-2 rounded flex flex-col items-center justify-center gap-2">
                                                     {/* image icon */}
                                                     <IconifyIcon icon='mage:image-upload' fontSize={40} className='text-lg text-blue-600' />
