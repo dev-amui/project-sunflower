@@ -9,7 +9,7 @@ interface NavTabsProps {
     clicked: (value: string) => void
 }
 
-const CustomNavTabs = ({ tabs,initialTab, clicked }: NavTabsProps) => {
+const CustomNavTabs = ({ tabs, initialTab, clicked }: NavTabsProps) => {
     const [activeTab, setActiveTab] = useState(initialTab || tabs[0]) // Set initial active tab to the first tab or the provided initialTab
     const [borderStyle, setBorderStyle] = useState({ left: 0, width: 0 })
     const tabRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({})
@@ -47,7 +47,7 @@ const CustomNavTabs = ({ tabs,initialTab, clicked }: NavTabsProps) => {
                                 ref={(el) => { tabRefs.current[tab] = el; }}
                                 key={idx}
                                 onClick={() => handleTabClick(tab)}
-                                className={`py-2 px-3 text-sm font-medium min-w-fit transition-colors relative z-10 ${activeTab === tab ? "text-blue-600" : "text-gray-500 hover:text-gray-700"
+                                className={`py-2 px-3 text-sm font-medium min-w-fit transition-colors relative z-10 ${activeTab === tab ? "text-primary" : "text-gray-500 hover:text-gray-700"
                                     }`}
                             >
                                 {tab}
@@ -58,7 +58,7 @@ const CustomNavTabs = ({ tabs,initialTab, clicked }: NavTabsProps) => {
 
                     {/* Animated border */}
                     <div
-                        className="absolute bottom-0 h-0.5 bg-blue-500 transition-all duration-300 ease-in-out"
+                        className="absolute bottom-0 h-0.5 bg-primary transition-all duration-300 ease-in-out"
                         style={{
                             left: `${borderStyle.left}px`,
                             width: `${borderStyle.width}px`,
