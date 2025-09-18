@@ -24,11 +24,11 @@ const WardFiles = () => {
                     <div className="passportPics mt-1 flex items-center gap-4">
                         <Avatar className='w-full size-24 rounded-sm'>
                             <AvatarImage src="https://github.com/shadcn.png" />
-                            <AvatarFallback>{'Maxwell'.at?.(1)}{'Konadu'.at?.(1)}</AvatarFallback>
+                            <AvatarFallback>{'Maxwell'.at?.(0)}{'Konadu'.at?.(0)}</AvatarFallback>
                         </Avatar>
                         <Avatar className='w-full size-24 rounded-sm'>
                             <AvatarImage src="https://github.com/shadcn.png" />
-                            <AvatarFallback>{'Maxwell'.at?.(1)}{'Konadu'.at?.(1)}</AvatarFallback>
+                            <AvatarFallback>{'Maxwell'.at?.(0)}{'Konadu'.at?.(0)}</AvatarFallback>
                         </Avatar>
                     </div>
                 </div>
@@ -40,11 +40,11 @@ const WardFiles = () => {
                         <div className="passportPics mt-1 flex items-center gap-4">
                             <Avatar className='w-full size-24 rounded-sm'>
                                 <AvatarImage src="https://github.com/shadcn.png" />
-                                <AvatarFallback>{'Maxwell'.at?.(1)}{'Konadu'.at?.(1)}</AvatarFallback>
+                                <AvatarFallback>{'Maxwell'.at?.(0)}{'Konadu'.at?.(0)}</AvatarFallback>
                             </Avatar>
                             <Avatar className='w-full size-24 rounded-sm'>
                                 <AvatarImage src="https://github.com/shadcn.png" />
-                                <AvatarFallback>{'Maxwell'.at?.(1)}{'Konadu'.at?.(1)}</AvatarFallback>
+                                <AvatarFallback>{'Maxwell'.at?.(0)}{'Konadu'.at?.(0)}</AvatarFallback>
                             </Avatar>
                         </div>
                     </div>
@@ -54,11 +54,11 @@ const WardFiles = () => {
                         <div className="passportPics mt-1 flex items-center gap-4">
                             <Avatar className='w-full size-24 rounded-sm'>
                                 <AvatarImage src="https://github.com/shadcn.png" />
-                                <AvatarFallback>{'Maxwell'.at?.(1)}{'Konadu'.at?.(1)}</AvatarFallback>
+                                <AvatarFallback>{'Maxwell'.at?.(0)}{'Konadu'.at?.(0)}</AvatarFallback>
                             </Avatar>
                             <Avatar className='w-full size-24 rounded-sm'>
                                 <AvatarImage src="https://github.com/shadcn.png" />
-                                <AvatarFallback>{'Maxwell'.at?.(1)}{'Konadu'.at?.(1)}</AvatarFallback>
+                                <AvatarFallback>{'Maxwell'.at?.(0)}{'Konadu'.at?.(0)}</AvatarFallback>
                             </Avatar>
                         </div>
                     </div>
@@ -71,11 +71,11 @@ const WardFiles = () => {
                     <div className="passportPics mt-1 flex items-center gap-4">
                         <Avatar className='w-full size-24 rounded-sm'>
                             <AvatarImage src="https://github.com/shadcn.png" />
-                            <AvatarFallback>{'Maxwell'.at?.(1)}{'Konadu'.at?.(1)}</AvatarFallback>
+                            <AvatarFallback>{'Maxwell'.at?.(0)}{'Konadu'.at?.(0)}</AvatarFallback>
                         </Avatar>
                         <Avatar className='w-full size-24 rounded-sm'>
                             <AvatarImage src="https://github.com/shadcn.png" />
-                            <AvatarFallback>{'Maxwell'.at?.(1)}{'Konadu'.at?.(1)}</AvatarFallback>
+                            <AvatarFallback>{'Maxwell'.at?.(0)}{'Konadu'.at?.(0)}</AvatarFallback>
                         </Avatar>
                     </div>
                 </div>
@@ -85,11 +85,11 @@ const WardFiles = () => {
                     <div className="passportPics mt-1 flex items-center gap-4">
                         <Avatar className='w-full size-24 rounded-sm'>
                             <AvatarImage src="https://github.com/shadcn.png" />
-                            <AvatarFallback>{'Maxwell'.at?.(1)}{'Konadu'.at?.(1)}</AvatarFallback>
+                            <AvatarFallback>{'Maxwell'.at?.(0)}{'Konadu'.at?.(0)}</AvatarFallback>
                         </Avatar>
                         <Avatar className='w-full size-24 rounded-sm'>
                             <AvatarImage src="https://github.com/shadcn.png" />
-                            <AvatarFallback>{'Maxwell'.at?.(1)}{'Konadu'.at?.(1)}</AvatarFallback>
+                            <AvatarFallback>{'Maxwell'.at?.(0)}{'Konadu'.at?.(0)}</AvatarFallback>
                         </Avatar>
                     </div>
                 </div>
