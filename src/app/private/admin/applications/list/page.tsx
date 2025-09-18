@@ -63,7 +63,7 @@ const page = () => {
             {
                 accessorKey: 'actions',
                 header: '',
-                cell: info => <div><Link href={'#'} className='hover:underline decoration-primary text-primary'>Review</Link></div>,
+                cell: info => <div><Link href={'/private/admin/applications/1'} className='hover:underline decoration-primary text-primary'>Review</Link></div>,
             },
         ]
 
