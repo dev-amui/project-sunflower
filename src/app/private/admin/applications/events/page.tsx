@@ -7,7 +7,8 @@ import { ColumnDef } from '@tanstack/react-table';
 import { BookOpenCheckIcon, LandPlotIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React from 'react'
+import React, { useState } from 'react'
+import NewEventSlider from './partials/NewEventSlider';
 
 const eventData = [{
     eventName: 'Interview',
@@ -27,6 +28,8 @@ const eventData = [{
 
 const page = () => {
     const router = useRouter()
+
+    const [showNewEvent, setshowNewEvent] = useState<boolean>(false)
 
 
     const formColumns: ColumnDef<typeof eventData[number]>[] = [
@@ -111,10 +114,13 @@ const page = () => {
                  </div> */}
                     {/* right side */}
                     <div className="rightSide">
-                        <ButtonLoading title='Add Event' leftIcon='formkit:add' className='cursor-pointer w-fit' onClick={() => { router.push('/private/forms/new') }} />
+                        <ButtonLoading title='Add Event' leftIcon='formkit:add' className='cursor-pointer w-fit' onClick={() => { setshowNewEvent(true) }} />
                     </div>
                 </div>} columns={formColumns} data={eventData} totalPages={1} addFiltering />
             </div>
+
+            {/* MODALS */}
+            <NewEventSlider open={showNewEvent} onOpenChange={setshowNewEvent} />
         </div>
     )
 }
