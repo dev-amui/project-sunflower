@@ -5,15 +5,17 @@ import { useRouter } from 'next/navigation'
 import CustomLinkTabs from './CustomLinkTabs'
 import { ILinkTab } from './CustomLinkTabs'
 
-type IApplicationsTitle = 'Overview' | 'All Applications'
-type IApplicationsLink = '/private/admin/applications/overview' | '/private/admin/applications/list'
+type IApplicationsTitle = 'Overview' | 'All Applications' | 'Application Events'
+type IApplicationsLink = '/private/admin/applications/overview' | '/private/admin/applications/list' | '/private/admin/applications/events'
 
 
 
 const settingsPages: ILinkTab<{ title: IApplicationsTitle, link: IApplicationsLink }>[] = [
     { title: 'Overview', link: '/private/admin/applications/overview' },
     { title: 'All Applications', link: '/private/admin/applications/list' },
+    { title: 'Application Events', link: '/private/admin/applications/events' }
 ]
+
 
 const EnrollmentApplicationsTabs = () => {
     const router = useRouter()
