@@ -9,6 +9,7 @@ import WardDetails from './partials/WardDetails'
 import WardFiles from './partials/WardFiles'
 import GuardianDetails from './partials/GuardianDetails'
 import ApplicationActionContext from './partials/ApplicationActionContext'
+import ApplicationEvents from './partials/ApplicationEvents'
 
 const page = () => {
     const { updatenoMaxWidthStatus } = useAppSettingsStore()
@@ -21,7 +22,7 @@ const page = () => {
     }, [])
 
     // views
-    const [currentView, setcurrentView] = useState<'Ward Details' | 'Ward Files' | 'Guardian Details'>('Ward Details')
+    const [currentView, setcurrentView] = useState<'Ward Details' | 'Ward Files' | 'Guardian Details' | 'Application Events'>('Ward Details')
 
 
     return (
@@ -53,7 +54,7 @@ const page = () => {
             <div className="applicationContentDets mx-auto maximum-width">
                 {/* view tabs */}
                 <div className="tabList my-6 h-[36px] sticky top-26 z-10 bg-[#f8f8fb] border-x-none w-full">
-                    <CustomNavTabs initialTab={currentView} clicked={(val: any) => { setcurrentView(val) }} tabs={['Ward Details', 'Ward Files', 'Guardian Details']} />
+                    <CustomNavTabs initialTab={currentView} clicked={(val: any) => { setcurrentView(val) }} tabs={['Ward Details', 'Ward Files', 'Guardian Details', 'Application Events']} />
                 </div>
 
 
@@ -67,6 +68,7 @@ const page = () => {
                         {currentView == 'Ward Files' && <WardFiles />}
                         {/* Guardian Details */}
                         {currentView == 'Guardian Details' && <GuardianDetails />}
+                        {currentView == 'Application Events' && <ApplicationEvents />}
                     </div>
 
                     {/* Actions Context */}
