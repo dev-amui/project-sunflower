@@ -17,7 +17,7 @@ const ApplicationEvents = () => {
             </div>
 
             {/* events details */}
-            <div className="eventsCards mt-8 grid grid-cols-2 gap-4 bg-gray-50">
+            <div className="eventsCards mt-8 gap-4 bg-gray-50">
               <EventCard />
             </div>
         </div>
