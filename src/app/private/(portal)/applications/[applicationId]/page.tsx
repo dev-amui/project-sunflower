@@ -4,8 +4,12 @@ import CustomNavTabs from '@/customComponents/CustomNavTabs';
 import IconifyIcon from '@/customComponents/IconifyIcon';
 import { cn } from '@/lib/utils';
 import { useAppSettingsStore } from '@/store/appSettings';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import AdminReviewNotes from './partials/AdminReviewNotes';
+import WardDetailsForm from './partials/WardDetailsForm';
+import WardFilesForm from './partials/WardFilesForm';
+import GuardianDetailsForm from './partials/GuardianDetailsForm';
+import InvitationsForm from './partials/InvitationsForm';
 
 
 
@@ -18,7 +22,7 @@ const page = () => {
   const [currentView, setcurrentView] = useState<TApplicationDetails>('Ward Details')
 
   // this is a useeffect that updates the no max width status to true when the page is mounted
-  useEffect(() => {
+  useLayoutEffect(() => {
     updatenoMaxWidthStatus(true)
     return () => {
       updatenoMaxWidthStatus(false)
@@ -64,12 +68,12 @@ const page = () => {
         <div className="viewsContainer grid grid-cols-9 gap-8 pb-10 px-1">
           <div className="forms col-span-6">
             {/* Ward details */}
-            {currentView == 'Ward Details' && 'Ward Details'}
+            {currentView == 'Ward Details' && <WardDetailsForm />}
             {/* ward files */}
-            {currentView == 'Ward Files' && 'Ward Files'}
+            {currentView == 'Ward Files' && <WardFilesForm />}
             {/* Guardian Details */}
-            {currentView == 'Guardian Details' && 'Guardian Details'}
-            {currentView == 'Invitations' && 'Invited Events'}
+            {currentView == 'Guardian Details' && <GuardianDetailsForm />}
+            {currentView == 'Invitations' && <InvitationsForm />}
           </div>
 
 
