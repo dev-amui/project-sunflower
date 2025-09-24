@@ -4,9 +4,13 @@ import { Progress } from '@/components/ui/progress';
 import ButtonLoading from '@/customComponents/Button';
 import IconifyIcon from '@/customComponents/IconifyIcon';
 import { cn } from '@/lib/utils';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 const ApplicationCard = () => {
+    const router = useRouter()
+
+
     return (
         <div className='bg-white w-full rounded-lg p-6 flex flex-col gap-4'>
             {/* header */}
@@ -39,7 +43,7 @@ const ApplicationCard = () => {
                     <span className='text-gray-500'>5th January 2025</span>
                 </div>
 
-                <ButtonLoading title='View Progress' className='w-full' />
+                <ButtonLoading title='View Progress' className='w-full' onClick={()=>router.push(`/private/applications/1`)}/>
             </div>
         </div>
     )
