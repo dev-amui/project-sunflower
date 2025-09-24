@@ -10,6 +10,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Form } from '@/components/ui/form'
 import AppDivider from '@/customComponents/AppDivider';
 import IconifyIcon from '@/customComponents/IconifyIcon';
+import ButtonLoading from '@/customComponents/Button';
 
 const childFormSchema = z.object({
 })
@@ -134,6 +135,9 @@ const WardFilesForm = () => {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div className="submitBtn mt-6">
+                            <ButtonLoading title='Submit Update' />
                         </div>
                     </form>
                 </Form>

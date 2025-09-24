@@ -8,6 +8,7 @@ import AppDivider from '@/customComponents/AppDivider';
 import { InputFormField, PhoneNumberFormField, SelectFormField } from '@/customComponents/FormFields';
 import { useForm } from 'react-hook-form';
 import { LockKeyholeIcon, LockKeyholeOpenIcon } from 'lucide-react';
+import ButtonLoading from '@/customComponents/Button';
 
 const guardianSchema = z.object({
     firstName: z.string(),
@@ -72,6 +73,10 @@ const GuardianDetailsForm = () => {
                         <div className="guardianInfo grid grid-cols-2 gap-4">
                             <InputFormField form={guardianForm} name='occupation' label='Occupation' />
                             <InputFormField form={guardianForm} name='placeOfWork' label='Place of work' />
+                        </div>
+
+                        <div className="submitBtn mt-6">
+                            <ButtonLoading title='Submit Update' />
                         </div>
                     </form>
                 </Form>

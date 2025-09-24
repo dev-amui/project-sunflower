@@ -9,6 +9,7 @@ import { Form } from '@/components/ui/form'
 import AppDivider from '@/customComponents/AppDivider';
 import { InputFormField, SelectFormField, TextAreaFormField } from '@/customComponents/FormFields';
 import { AVAILABLE_CLASSES } from '@/constants/FormConstants';
+import ButtonLoading from '@/customComponents/Button';
 
 const childFormSchema = z.object({
 })
@@ -73,6 +74,10 @@ const WardDetailsForm = () => {
             <div className="applicationInfo grid grid-cols-1 md:grid-cols-2 gap-4">
               <TextAreaFormField form={childForm} name='medicalInformation' label='Medical Information' disabled />
               <TextAreaFormField form={childForm} name='additionalNotes' label='Additional Information' disabled />
+            </div>
+
+            <div className="submitBtn mt-4">
+              <ButtonLoading title='Submit Update' />
             </div>
           </form>
         </Form>
