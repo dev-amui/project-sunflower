@@ -11,15 +11,16 @@ export default function ApplicationsLayout({
 }: {
     children: React.ReactNode
 }) {
-    const { applicationId } = useParams()
+    const { applicationId,eventId } = useParams()
 
     useEffect(() => {
 
         console.log('applicationId', applicationId)
+        console.log('eventId', eventId)
         return () => {
 
         }
-    }, [applicationId])
+    }, [applicationId,eventId])
 
 
 
@@ -33,7 +34,7 @@ export default function ApplicationsLayout({
             {/* header */}
             <div className="layoutContainer h-full ">
                 {/* shared layout */}
-                {!applicationId && <div className="sharedLayout flex flex-col p-4">
+                {!(applicationId || eventId) && <div className="sharedLayout flex flex-col p-4">
                     <div className="headerText">
                         <p className="subHeader text-[24px] text-darkGrey">
                             Applications
@@ -49,7 +50,7 @@ export default function ApplicationsLayout({
                 </div>}
 
                 {/* child routes */}
-                <main className={cn("w-full h-full", !applicationId && 'px-4')}>{children}</main>
+                <main className={cn("w-full h-full", !(applicationId || eventId) && 'px-4')}>{children}</main>
 
             </div>
         </div>
