@@ -7,6 +7,8 @@ import { cn } from '@/lib/utils'
 import { useAppSettingsStore } from '@/store/appSettings'
 import { set } from 'date-fns';
 import EventDetailsView from './partials/EventDetailsView';
+import ApplicationCandidatesView from './partials/ApplicationCandidatesView';
+import EventsGradingView from './partials/EventsGradingView';
 
 
 type TEventViews = 'Event Details' | 'Candidates' | 'Grading'
@@ -78,15 +80,10 @@ const page = () => {
             {/* Event details */}
             {currentView == 'Event Details' && <EventDetailsView />}
             {/* Application Candidates */}
-            {currentView == 'Candidates' && 'Application Candidates View'}
+            {currentView == 'Candidates' && <ApplicationCandidatesView />}
             {/* Grading */}
-            {currentView == 'Grading' && 'Candidates Grading View'}
+            {currentView == 'Grading' && <EventsGradingView />}
           </div>
-
-          {/* Actions Context */}
-          {/* <div className="actionsContext col-span-3 sticky top-40 h-fit">
-            <ApplicationActionContext />
-          </div> */}
         </div>
 
       </div>

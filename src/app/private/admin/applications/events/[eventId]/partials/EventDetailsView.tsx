@@ -65,7 +65,7 @@ const EventDetailsView = () => {
 
             {/* Event subjects */}
             <div className="eventSubjects mt-8 bg-gray-50 rounded-m p-4">
-                <AppDivider position='center' text='Event Subjects' />
+                <AppDivider position='center' text='Event Subjects' className='font-semibol' textClassName='text-base italic' />
 
                 <div className="subjectCardsContainer mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {/* subject card */}
