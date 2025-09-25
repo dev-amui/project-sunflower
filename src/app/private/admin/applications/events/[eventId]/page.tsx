@@ -6,6 +6,7 @@ import IconifyIcon from '@/customComponents/IconifyIcon'
 import { cn } from '@/lib/utils'
 import { useAppSettingsStore } from '@/store/appSettings'
 import { set } from 'date-fns';
+import EventDetailsView from './partials/EventDetailsView';
 
 
 type TEventViews = 'Event Details' | 'Candidates' | 'Grading'
@@ -72,10 +73,14 @@ const page = () => {
 
         {/* VIEWS */}
 
-        <div className="viewsContainer pb-10 px-1">
+        <div className="viewsContainer pb-10 md:px-1">
           <div className="forms col-span-6">
             {/* Event details */}
-            {currentView == 'Event Details' && 'Event Details View'}
+            {currentView == 'Event Details' && <EventDetailsView />}
+            {/* Application Candidates */}
+            {currentView == 'Candidates' && 'Application Candidates View'}
+            {/* Grading */}
+            {currentView == 'Grading' && 'Candidates Grading View'}
           </div>
 
           {/* Actions Context */}
