@@ -97,8 +97,6 @@ const EventDetailsView = () => {
                             </div>
                         ))
                     }
-
-
                 </div>
             </div>
         </div>

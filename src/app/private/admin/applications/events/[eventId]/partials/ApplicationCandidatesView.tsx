@@ -148,7 +148,7 @@ const ApplicationCandidatesView = () => {
           {/* left side */}
           <div className="leftSide">
             <p className='text-xl font-semibold'>Candidate List</p>
-            <p className='mt-1 text-darkGrey text-sm'>This table is a list of all wards whose applications have been deemed qualified and accepted.</p>
+            <p className='mt-1 text-gray-500 text-sm'>This table is a list of all wards whose applications have been deemed qualified and accepted.</p>
           </div>
 
           {/* right side */}

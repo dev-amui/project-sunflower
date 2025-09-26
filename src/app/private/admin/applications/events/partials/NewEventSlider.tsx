@@ -20,7 +20,7 @@ import ButtonLoading from "@/customComponents/Button";
 import InformationCard from "@/customComponents/InformationCard";
 
 
-type AddPaymentMethodProps = {
+type TNewEventSliderProps = {
     open: boolean;
     onOpenChange: (open: boolean) => void;
 };
@@ -32,7 +32,7 @@ const newEventSchema = z.object({
 
 
 
-export default function NewEventSlider({ open, onOpenChange }: AddPaymentMethodProps) {
+export default function NewEventSlider({ open, onOpenChange }: TNewEventSliderProps) {
     const [currentView, setcurrentView] = useState<'form' | 'grades'>('grades')
 
 
