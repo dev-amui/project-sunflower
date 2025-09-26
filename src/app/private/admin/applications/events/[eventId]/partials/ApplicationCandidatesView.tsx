@@ -1,9 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import DataTable from '@/customComponents/datatable';
 import { ColumnDef } from '@tanstack/react-table';
+import { Switch } from '@/components/ui/switch';
+import { LoaderCircleIcon } from 'lucide-react';
+import ConfirmationDialog from '@/customComponents/ConfirmationDialog';
 
 
 const enlistmentFormData = [
@@ -14,13 +17,53 @@ const enlistmentFormData = [
     image: '',
     guardianFirstName: '',
     GuardianLastName: '',
-    progress: 79,
-    class: 'JHS 1'
+    class: 'JHS 1',
+    invitations: [{ id: 1, status: true }],
+  },
+  {
+    id: 2,
+    firstName: 'Memuna',
+    lastName: 'Abdullah',
+    image: '',
+    guardianFirstName: 'Adamu',
+    GuardianLastName: 'Abdullah',
+    class: 'JHS 1',
+    invitations: [],
   }
 ]
 
 
 const ApplicationCandidatesView = () => {
+  let timer: any;
+
+  const [formattedData, setformattedData] = useState([...enlistmentFormData])
+  const [selectedCandidate, setselectedCandidate] = useState<typeof enlistmentFormData[number]>({} as any)
+  const [showConfirmInvitationDialog, setShowconfirmInvitationDialog] = useState<boolean>(false)
+
+  const [loading, setloading] = useState<boolean>(false)
+
+  const handleSendInvitation = (candidate: typeof enlistmentFormData[number]) => {
+    setselectedCandidate(candidate)
+    setShowconfirmInvitationDialog(true)
+  }
+
+  const handleConfirmSendInvitation = () => {
+    setloading(true)
+    timer = setTimeout(() => {
+      // update the formatted data state to reflect the change
+      setformattedData((prev) => {
+        return prev.map((item) => {
+          if (item.id === selectedCandidate.id) {
+            return { ...item, invitations: [{ id: Math.random(), status: true }] }
+          }
+          return item
+        })
+      })
+      setloading(false)
+      setShowconfirmInvitationDialog(false)
+    }, 2000);
+  }
+
 
   const formColumns: ColumnDef<typeof enlistmentFormData[number]>[] =
     [
@@ -55,16 +98,21 @@ const ApplicationCandidatesView = () => {
         cell: info => info.row.original.class,
       },
       {
-        accessorKey: 'progress',
-        header: 'Progress',
-        cell: info => <div><progress value={info.row.original.progress} className='rounded-full overflow-hidden' /></div>,
-      },
-      {
-        accessorKey: 'actions',
-        header: '',
-        cell: info => <div>Some action</div>,
+        accessorKey: 'invitationStatus',
+        header: 'Send Invitation',
+        // cell: info => <div><Switch id="invitationStatus" defaultChecked={!!(info.row.original.invitations.length)} disabled={!!(info.row.original.invitations.length)} onCheckedChange={() => { }} /> </div>,
+        cell: info => <div className='switchContinainer flex items-center gap-1'><Switch id="invitationStatus" checked={!!(info.row.original.invitations.length)} disabled={!!(info.row.original.invitations.length)} onCheckedChange={() => {
+          handleSendInvitation(info.row.original)
+        }} /> {(loading && info.row.original.id == selectedCandidate.id) && <LoaderCircleIcon className='animate-spin' />} </div>,
       },
     ]
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [])
+
 
   return (
     <div className='applicationCandidatesView'>
@@ -72,8 +120,11 @@ const ApplicationCandidatesView = () => {
       <div className='candidateForm mt-10'>
         <DataTable tableInformationContent={<div className='pb-5 flex justify-end items-center'>
 
-        </div>} columns={formColumns} data={enlistmentFormData} totalPages={1} addFiltering />
+        </div>} columns={formColumns} data={formattedData} totalPages={1} addFiltering />
       </div>
+
+      {/* MODALS */}
+      <ConfirmationDialog open={showConfirmInvitationDialog} onClose={() => setShowconfirmInvitationDialog(false)} onConfirm={handleConfirmSendInvitation} header='Confirm Invitation' description={`Are you sure you want to send ${selectedCandidate.firstName} ${selectedCandidate.lastName} an invitaion to this event? This action cannot be undone after submission`} confirmText='Send Invite' />
     </div>
   )
 }
