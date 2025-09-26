@@ -7,6 +7,7 @@ import { ColumnDef } from '@tanstack/react-table';
 import { Switch } from '@/components/ui/switch';
 import { LoaderCircleIcon } from 'lucide-react';
 import ConfirmationDialog from '@/customComponents/ConfirmationDialog';
+import ButtonLoading from '@/customComponents/Button';
 
 
 const enlistmentFormData = [
@@ -35,16 +36,40 @@ const enlistmentFormData = [
 
 const ApplicationCandidatesView = () => {
   let timer: any;
+  let timerAll: any;
 
   const [formattedData, setformattedData] = useState([...enlistmentFormData])
   const [selectedCandidate, setselectedCandidate] = useState<typeof enlistmentFormData[number]>({} as any)
   const [showConfirmInvitationDialog, setShowconfirmInvitationDialog] = useState<boolean>(false)
 
-  const [loading, setloading] = useState<boolean>(false)
+
+  const [showConfirmAllInvitationDialog, setShowConfirmAllInvitationDialog] = useState<boolean>(false);
 
   const handleSendInvitation = (candidate: typeof enlistmentFormData[number]) => {
     setselectedCandidate(candidate)
     setShowconfirmInvitationDialog(true)
+  }
+
+  //delete these states later
+  const [loading, setloading] = useState<boolean>(false)
+  const [loadingAll, setloadingAll] = useState<boolean>(false)
+
+  const handleConfirmSendAllInvitation = () => {
+    // Implement logic to send invitations to all candidates here
+    setShowConfirmAllInvitationDialog(false);
+    setloadingAll(true)
+    timerAll = setTimeout(() => {
+      // update the formatted data state to reflect the change
+      setformattedData((prev) => {
+        return prev.map((item) => {
+          if (!item.invitations.length) {
+            return { ...item, invitations: [{ id: Math.random(), status: true }] }
+          }
+          return item
+        })
+      })
+      setloadingAll(false)
+    }, 2000);
   }
 
   const handleConfirmSendInvitation = () => {
@@ -110,6 +135,7 @@ const ApplicationCandidatesView = () => {
   useEffect(() => {
     return () => {
       clearTimeout(timer)
+      clearTimeout(timerAll)
     }
   }, [])
 
@@ -118,13 +144,26 @@ const ApplicationCandidatesView = () => {
     <div className='applicationCandidatesView'>
       {/* tables */}
       <div className='candidateForm mt-10'>
-        <DataTable tableInformationContent={<div className='pb-5 flex justify-end items-center'>
+        <DataTable tableInformationContent={<div className='pb-5 flex items-center justify-between'>
+          {/* left side */}
+          <div className="leftSide">
+            <p className='text-xl font-semibold'>Candidate List</p>
+            <p className='mt-1 text-darkGrey text-sm'>This table is a list of all wards whose applications have been deemed qualified and accepted.</p>
+          </div>
 
+          {/* right side */}
+          <div className="rightSide">
+            {/* future use */}
+            <ButtonLoading title='Invite all Candidates' onClick={() => setShowConfirmAllInvitationDialog(true)} loading={loadingAll} />
+          </div>
         </div>} columns={formColumns} data={formattedData} totalPages={1} addFiltering />
       </div>
 
       {/* MODALS */}
-      <ConfirmationDialog open={showConfirmInvitationDialog} onClose={() => setShowconfirmInvitationDialog(false)} onConfirm={handleConfirmSendInvitation} header='Confirm Invitation' description={`Are you sure you want to send ${selectedCandidate.firstName} ${selectedCandidate.lastName} an invitaion to this event? This action cannot be undone after submission`} confirmText='Send Invite' />
+      {/* invite individual candidates */}
+      <ConfirmationDialog open={showConfirmInvitationDialog} onClose={() => setShowconfirmInvitationDialog(false)} onConfirm={handleConfirmSendInvitation} header='Confirm Invitation' description={`Are you sure you want to send ${selectedCandidate.firstName} ${selectedCandidate.lastName} an invitation to this event? This action cannot be undone after submission`} confirmText='Send Invite' />
+      {/* invite all candidates */}
+      <ConfirmationDialog open={showConfirmAllInvitationDialog} onClose={() => setShowConfirmAllInvitationDialog(false)} onConfirm={handleConfirmSendAllInvitation} header='Confirm Invitation!' description={`Are you sure you want to send all candidates an invitation to this event? This action cannot be undone after submission`} confirmText='Send Invitations' />
     </div>
   )
 }
