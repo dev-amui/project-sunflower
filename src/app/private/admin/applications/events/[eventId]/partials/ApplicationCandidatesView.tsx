@@ -161,7 +161,7 @@ const ApplicationCandidatesView = () => {
 
       {/* MODALS */}
       {/* invite individual candidates */}
-      <ConfirmationDialog open={showConfirmInvitationDialog} onClose={() => setShowconfirmInvitationDialog(false)} onConfirm={handleConfirmSendInvitation} header='Confirm Invitation' description={`Are you sure you want to send ${selectedCandidate.firstName} ${selectedCandidate.lastName} an invitation to this event? This action cannot be undone after submission`} confirmText='Send Invite' />
+      <ConfirmationDialog open={showConfirmInvitationDialog} onClose={() => setShowconfirmInvitationDialog(false)} onConfirm={handleConfirmSendInvitation} header='Confirm Invitation' description={<p>Are you sure you want to send <span className='font-semibold text-gray-700'>{selectedCandidate.firstName} {selectedCandidate.lastName}</span> an invitation to this event? This action cannot be undone after submission</p>} confirmText='Send Invite' />
       {/* invite all candidates */}
       <ConfirmationDialog open={showConfirmAllInvitationDialog} onClose={() => setShowConfirmAllInvitationDialog(false)} onConfirm={handleConfirmSendAllInvitation} header='Confirm Invitation!' description={`Are you sure you want to send all candidates an invitation to this event? This action cannot be undone after submission`} confirmText='Send Invitations' />
     </div>

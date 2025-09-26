@@ -12,6 +12,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import { cn } from '@/lib/utils';
 
 
 interface IConfimationDialogProps {
@@ -19,7 +20,7 @@ interface IConfimationDialogProps {
     onClose: () => void;
     onConfirm?: () => void;
     header?: string;
-    description?: string;
+    description?: React.ComponentType<'p'> | React.ReactElement | string;
     confirmText?: string;
     cancelText?: string;
     styling?: {
@@ -36,9 +37,12 @@ const ConfirmationDialog = ({ onClose, onConfirm, open, cancelText, confirmText,
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle className={styling?.header}>{header}</AlertDialogTitle>
-                    <AlertDialogDescription className={styling?.description}>
-                        {description}
-                    </AlertDialogDescription>
+                    <div className={cn('text-gray-500 text-[15px]', styling?.description)} >
+                        {typeof description === 'string' ? description : typeof description === "function"
+                            ? React.createElement(description)
+                            : description}
+                        {/* {description} */}
+                    </div>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                     <AlertDialogCancel className={styling?.cancelButton}>{cancelText ? cancelText : 'Cancel'}</AlertDialogCancel>
