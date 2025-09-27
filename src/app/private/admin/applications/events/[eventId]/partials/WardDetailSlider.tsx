@@ -38,7 +38,7 @@ const WardDetailSlider = ({ onOpenChange, open }: TWardDetailsSliderProps) => {
                     <div className="avatar h-30 lg:h-50 overflow-hidden">
                         <Avatar className='w-full !h-full rounded-sm'>
                             <AvatarImage src="https://github.com/shadcn.png" className='max-h-full object-cover aspect-auto' />
-                            <AvatarFallback>{'Michael'.at?.(1)}{'Agyemang'?.at?.(1)}</AvatarFallback>
+                            <AvatarFallback className='h-full w-full'>{'Michael'.at?.(1)}{'Agyemang'?.at?.(1)}</AvatarFallback>
                         </Avatar>
                     </div>
 

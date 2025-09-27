@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import { ColumnDef } from '@tanstack/react-table';
 import React, { useState } from 'react';
 import WardDetailSlider from './WardDetailSlider';
+import GradingWardSlider from './GradingWardSlider';
 
 const candidateGradingData = [
     {
@@ -69,11 +70,12 @@ const candidateGradingData = [
 
 const EventsGradingView = () => {
     const [showWard, setshowWard] = useState(false);
+    const [showGradingWardSlider, setshowGradingWardSlider] = useState<boolean>(false)
 
     const tableActions = [
-        { component: 'View Student', onClick: (data: any) => { setshowWard(true) }, icon: 'carbon:data-view' },
-        { component: 'Grade Student', onClick: () => { }, icon: 'carbon:task-add' },
-        { component: 'Approve Grades', onClick: () => { }, icon: 'carbon:task-approved' },
+        { component: 'View Ward', onClick: (data: any) => { setshowWard(true) }, icon: 'carbon:data-view' },
+        { component: 'Grade Ward', onClick: () => { setshowGradingWardSlider(true) }, icon: 'carbon:task-add' },
+        // { component: 'Approve Grades', onClick: () => { }, icon: 'carbon:task-approved' },
 
     ]
 
@@ -146,6 +148,8 @@ const EventsGradingView = () => {
             {/* MODALS */}
             {/* ward Details Modal */}
             <WardDetailSlider open={showWard} onOpenChange={() => { setshowWard(false) }} />
+            {/* grading ward slider */}
+            <GradingWardSlider open={showGradingWardSlider} onOpenChange={() => { setshowGradingWardSlider(false) }} />
         </div>
     )
 }
