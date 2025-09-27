@@ -2,11 +2,15 @@
 
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import ApplicationEventModal from '@/customComponents/ApplicationEventModal'
 import ButtonLoading from '@/customComponents/Button'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 
 const WardEventsCard = () => {
+    const [showApplicationEventModal, setshowApplicationEventModal] = useState<boolean>(false)
+
+
     return (
         <div className='eventCard bg-white rounded-lg grid grid-cols-2 gap-4 w-full border p-2 h-[200px] hover:shadow'>
             {/* event banner */}
@@ -38,14 +42,15 @@ const WardEventsCard = () => {
                 {/* footer */}
                 <div className="footer flex gap-4 justify-between items-center mt-auto">
                     <div className="leftSide flex items-center space-x-4">
-                        <ButtonLoading title='View Event' outline />
-                        <ButtonLoading title='View Grades' outline />
+                        <ButtonLoading title='View Event' outline type='button' onClick={() => setshowApplicationEventModal(true)} />
+                        <ButtonLoading title='View Grades' outline type='button' />
                     </div>
 
                 </div>
             </div>
 
-
+            {/* Modals */}
+            <ApplicationEventModal open={showApplicationEventModal} modal={true} onOpenChange={() => setshowApplicationEventModal(false)} />
         </div>
     )
 }
