@@ -1,16 +1,17 @@
 'use client';
 
-import EnrollmentApplicationsTabs from "@/customComponents/EnrollmentApplicationsTabs";
+
 import { cn } from "@/lib/utils";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
+import SettingsTabs from "./partials/SettingsTabs";
 
-export default function ApplicationsLayout({
+export default function SettingsLayout({
     children,
 }: {
     children: React.ReactNode
 }) {
-    const { applicationId,eventId } = useParams()
+    const { applicationId, eventId } = useParams()
 
     useEffect(() => {
 
@@ -19,7 +20,7 @@ export default function ApplicationsLayout({
         return () => {
 
         }
-    }, [applicationId,eventId])
+    }, [applicationId, eventId])
 
 
 
@@ -28,25 +29,21 @@ export default function ApplicationsLayout({
         //     <body>
 
         <div>
-            {/* Layout UI */}
-            {/* Place children where you want to render a page or nested layout */}
-            {/* header */}
             <div className="layoutContainer h-full ">
-                {/* shared layout */}
-                {!(applicationId || eventId) && <div className="sharedLayout flex flex-col p-4">
+                {/* {!(applicationId || eventId) && <div className="sharedLayout flex flex-col p-4">
                     <div className="headerText">
                         <p className="subHeader text-[24px] text-darkGrey">
-                            Applications
+                            Settings
                         </p>
 
-                        <p className='subText text-base mt-2 text-darkGrey'>Manage all student enrollment applications here.</p>
+                        <p className='subText text-base mt-2 text-darkGrey'>Manage your application settings here.</p>
                     </div>
 
-                    {/* tabs */}
+          
                     <div className="tabs my-6 h-[36px] sticky top-0 z-10 bg-[#f8f8fb]">
-                        <EnrollmentApplicationsTabs />
+                        <SettingsTabs />
                     </div>
-                </div>}
+                </div>} */}
 
                 {/* child routes */}
                 <main className={cn("w-full h-full", !(applicationId || eventId) && 'px-4')}>{children}</main>

@@ -40,7 +40,7 @@ const WardDetailsForm = () => {
 
       {/* padlock icon */}
       <div className="padlockIcon absolute top-4 right-4 ">
-        {false ? <LockKeyholeIcon className='!w-5 text-gray-400' /> :
+        {true ? <LockKeyholeIcon className='!w-5 text-gray-400' /> :
           <LockKeyholeOpenIcon className='!w-5 text-primary' />}
       </div>
 

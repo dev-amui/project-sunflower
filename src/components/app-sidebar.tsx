@@ -80,30 +80,25 @@ const data = {
     },
     {
       title: "Settings",
-      url: "/private/settings/user-profile",
-      baseUrl: "/private/settings",
+      url: "/private/admin/settings/user-profile",
+      baseUrl: "/private/admin/settings",
       icon: Settings,
       isActive: false,
       items: [
         {
           title: "Profile Settings",
-          url: "/private/settings/user-profile",
+          url: "/private/admin/settings/user-profile",
           baseUrl: "/private/admin/settings/user-profile",
         },
         {
-          title: "Term Configurations",
-          url: "/private/admin/settings/business-settings",
-          baseUrl: "/private/admin/settings/business-settings",
+          title: "Academics Setup",
+          url: "/private/admin/settings/academics-setup/academic-years",
+          baseUrl: "/private/admin/settings/academics-setup",
         },
         {
           title: "User Management",
           url: "/private/admin/settings/user-management",
           baseUrl: "/private/admin/settings/user-management",
-        },
-        {
-          title: "Notifications",
-          url: "/private/admin/settings/notifications",
-          baseUrl: "/private/admin/settings/notifications",
         },
       ],
     },
