@@ -67,20 +67,25 @@ const data = {
       isActive: false,
       items: [
         {
-          title: "Applications Overview",
+          title: "Application Overview",
           url: "/private/admin/applications/overview",
           baseUrl: "/private/admin/applications/overview",
         },
-         {
-          title: "Applications List",
+        {
+          title: "Application List",
           url: "/private/admin/applications/list",
           baseUrl: "/private/admin/applications/list",
+        },
+        {
+          title: "Application Events",
+          url: "/private/admin/applications/events",
+          baseUrl: "/private/admin/applications/events",
         },
       ],
     },
     {
       title: "Settings",
-      url: "/private/admin/settings/user-profile",
+      url: "/private/admin/settings",
       baseUrl: "/private/admin/settings",
       icon: Settings,
       isActive: false,

@@ -4,6 +4,7 @@ import EnrollmentApplicationsTabs from "@/customComponents/EnrollmentApplication
 import { cn } from "@/lib/utils";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
+import AcademicsSetupTabs from "./partials/AcademicSetupTabs";
 
 export default function ApplicationsLayout({
   children,
@@ -44,7 +45,7 @@ export default function ApplicationsLayout({
 
           {/* tabs */}
           <div className="tabs my-6 h-[36px] sticky top-0 z-10 bg-[#f8f8fb]">
-            <EnrollmentApplicationsTabs />
+            <AcademicsSetupTabs />
           </div>
         </div>}
 
