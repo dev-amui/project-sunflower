@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/globals.css";
 import NavigationBar from "@/customComponents/NavigationBar";
 import Footer from "@/customComponents/Footer";
+import { MainLayoutNavbar } from "@/customComponents/MainLayoutNavBar";
+import { MainLayoutFooter } from "@/customComponents/MainLayoutFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,15 +33,15 @@ export default function RootLayout({
       >
         {/* Navigation */}
         <div className="navigation">
-          <NavigationBar />
+          <MainLayoutNavbar />
         </div>
         {/* Body */}
-        <div className="body grow">
-        {children}
+        <div className="body grow max-w-screen overflow-x-hidden">
+          {children}
         </div>
         {/* Footer */}
         <div className="footer">
-          <Footer />
+          <MainLayoutFooter />
         </div>
       </body>
     </html>

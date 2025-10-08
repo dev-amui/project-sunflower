@@ -39,8 +39,17 @@ const NavigationBar = () => {
             </div>
             {/* authActions */}
             <div className="authActions flex items-center justify-center gap-2">
-                <Button title='Register' outline className='cursor-pointer' onClick={goToRegister} />
-                <Button title='Login' className='cursor-pointer' onClick={goToLogin} />
+                <Button
+                    title="Register"
+                    outline
+                    className="cursor-pointer px-2 py-1 text-sm md:px-4 md:py-2 md:text-base"
+                    onClick={goToRegister}
+                />
+                <Button
+                    title="Login"
+                    className="cursor-pointer px-2 py-1 text-sm md:px-4 md:py-2 md:text-base"
+                    onClick={goToLogin}
+                />
             </div>
         </div>
     )
