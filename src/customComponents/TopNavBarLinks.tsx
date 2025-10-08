@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import IconifyIcon from "./IconifyIcon"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 
 interface IMultipleLinksData {
@@ -62,13 +63,14 @@ export type TopNavBarLinksProps =
     }
 
 const SingleLink = ({ title, href, className }: { title: string; href: string, className?: string }) => {
+    const router = useRouter()
     return (
         <NavigationMenuItem>
-            <Link href={href} passHref className={className}>
-                <NavigationMenuLink className={navigationMenuTriggerStyle() + ' ' + className}>
+            <div className={cn('cursor-pointer', className)} onClick={() => { router.push(href) }}>
+                <NavigationMenuLink className={navigationMenuTriggerStyle() + 'cursor-pointer ' + className}>
                     {title}
                 </NavigationMenuLink>
-            </Link>
+            </div>
         </NavigationMenuItem>
     )
 }
