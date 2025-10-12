@@ -4,9 +4,21 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
+import { cn } from "@/lib/utils"
+import { usePathname } from "next/navigation"
+
+const NavLinks: { link: string, name: string }[] = [
+  { link: '/', name: 'Home' },
+  { link: '/about', name: 'About' },
+  { link: '/#programs', name: 'Programs' },
+  { link: '/admissions', name: 'Admissions' },
+  { link: '/campus-life', name: 'Campus' },
+  { link: '/contact', name: 'Contact' },
+]
 
 export function MainLayoutNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathName = usePathname()
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -17,22 +29,19 @@ export function MainLayoutNavbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/about" className="text-sm font-medium hover:text-muted-foreground transition-colors">
-              About
-            </Link>
-            <Link href="/#programs" className="text-sm font-medium hover:text-muted-foreground transition-colors">
-              Programs
-            </Link>
-            <Link href="/admissions" className="text-sm font-medium hover:text-muted-foreground transition-colors">
-              Admissions
-            </Link>
-            <Link href="/campus-life" className="text-sm font-medium hover:text-muted-foreground transition-colors">
-              Campus Life
-            </Link>
-            <Link href="/contact" className="text-sm font-medium hover:text-muted-foreground transition-colors">
-              Contact
-            </Link>
+          <div className="hidden md:flex items-center gap-1">
+
+            {NavLinks.map(el => (
+              <Link key={el.link} href={el.link} className={cn("text-sm font-medium px-4 py-2 rounded hover:bg-gray-300 hover:text-muted-foreground transition-colors")}>
+                {el.name}
+              </Link>
+            ))}
+
+            {/* <Link href="/" className={cn("text-sm font-medium px-4 py-2 rounded hover:bg-gray-300 hover:text-muted-foreground transition-colors")}>
+              Home
+            </Link> */}
+
+
             <Button size="sm" className="ml-4" asChild>
               <Link href="/admissions">Apply Now</Link>
             </Button>
@@ -47,6 +56,13 @@ export function MainLayoutNavbar() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden py-6 space-y-4 border-t border-border">
+            <Link
+              href="/home"
+              className="block text-sm font-medium hover:text-muted-foreground transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
             <Link
               href="/about"
               className="block text-sm font-medium hover:text-muted-foreground transition-colors"
