@@ -33,7 +33,7 @@ const programs = [
 
 export function Programs() {
   return (
-    <section id="programs" className="py-24 lg:py-32 bg-background">
+    <section id="programs" className="py-24 lg:py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light mb-6 text-balance">

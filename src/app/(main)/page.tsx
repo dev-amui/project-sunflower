@@ -7,7 +7,7 @@ import { CTA } from './partials/CTA'
 
 const page = () => {
   return (
-    <div className=''>
+    <div className='bg-amber-50'>
       <Hero />
       <Programs />
       <Values />

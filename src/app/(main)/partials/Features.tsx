@@ -1,25 +1,26 @@
-import { Card } from "@/components/ui/card"
+import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 const features = [
   {
-    image: "/teacher-mentoring-student-one-on-one.jpg",
+    image: "/images/teacherMentor.jpg",
     title: "Personalized Learning",
     description:
       "Small class sizes and individualized attention ensure every student receives the support they need to excel.",
   },
   {
-    image: "/students-in-science-laboratory-conducting-experime.jpg",
+    image: "/images/studentsScienceLab.jpg",
     title: "STEM Excellence",
     description:
       "Cutting-edge science, technology, engineering, and mathematics programs prepare students for tomorrow's challenges.",
   },
   {
-    image: "/students-performing-arts-theater-stage.jpg",
+    image: "/images/studentsCulture.jpg",
     title: "Arts & Culture",
     description:
       "Comprehensive arts programs foster creativity, self-expression, and cultural appreciation across all grade levels.",
   },
-]
+];
 
 export function Features() {
   return (
@@ -33,22 +34,36 @@ export function Features() {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => (
-            <Card key={index} className="overflow-hidden group hover:shadow-xl transition-shadow">
+            <Card
+              key={index}
+              className="overflow-hidden group hover:shadow-xl transition-shadow"
+            >
               <div className="aspect-square overflow-hidden">
-                <img
+                {/* <img
                   src={feature.image || "/placeholder.svg"}
                   alt={feature.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                /> */}
+                <Image
+                  src={feature.image || "/placeholder.svg"}
+                  alt={feature.title}
+                  fill
+                  priority
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-serif text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">{feature.description}</p>
+                <h3 className="font-serif text-xl font-semibold mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  {feature.description}
+                </p>
               </div>
             </Card>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
