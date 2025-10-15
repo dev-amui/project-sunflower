@@ -2,16 +2,17 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Award, Users, BookOpen, Target } from "lucide-react"
+import clsx from "clsx"
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen">
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-muted/30">
+      <section className="pt-32 pb-20 bg-muted/20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="font-serif text-5xl lg:text-6xl font-semibold mb-6 text-balance">About Oakwood Academy</h1>
+            <h1 className="font-serif text-5xl lg:text-6xl font-semibold mb-6 text-balance">About Sunflower School</h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               For over 50 years, we've been nurturing young minds and shaping future leaders through excellence in
               education.
@@ -96,7 +97,7 @@ export default function AboutPage() {
       </section>
 
       {/* History */}
-      <section className="py-20">
+      <section className="py-20 bg-muted/35">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="font-serif text-4xl font-semibold mb-8 text-center">Our History</h2>
@@ -119,7 +120,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-muted/40">
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <h2 className="font-serif text-4xl font-semibold mb-6">Join Our Community</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
