@@ -9,7 +9,7 @@ export function CTA() {
           Begin Your Journey with Us
         </h2>
         <p className="text-lg mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
-          Discover how Oakwood Academy can provide your child with an exceptional educational experience that prepares
+          Discover how Sunflower School can provide your child with an exceptional educational experience that prepares
           them for a bright future.
         </p>
         <Button size="lg" variant="secondary" className="text-base" asChild>

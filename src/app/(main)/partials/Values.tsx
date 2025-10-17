@@ -28,7 +28,7 @@ export function Values() {
 
         <div className="max-w-3xl mx-auto text-center mt-16">
           <p className="text-base text-muted-foreground leading-relaxed mb-8">
-            At Oakwood Academy, we believe in nurturing not just academic
+            At OSunflower School, we believe in nurturing not just academic
             excellence, but also character, creativity, and compassion. Our
             dedicated faculty and state-of-the-art facilities provide an
             environment where students thrive intellectually, socially, and

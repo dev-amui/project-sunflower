@@ -11,7 +11,7 @@ export default function CampusLifePage() {
                     <div className="max-w-3xl">
                         <h1 className="font-serif text-5xl lg:text-6xl font-semibold mb-6 text-balance">Campus Life</h1>
                         <p className="text-xl text-muted-foreground leading-relaxed">
-                            Beyond academics, Oakwood Academy offers a vibrant community where students explore their passions and
+                            Beyond academics, Sunflower School offers a vibrant community where students explore their passions and
                             develop lifelong friendships.
                         </p>
                     </div>
@@ -132,7 +132,7 @@ export default function CampusLifePage() {
                     <div className="max-w-3xl mx-auto text-center">
                         <h2 className="font-serif text-4xl font-semibold mb-6">A Day in the Life</h2>
                         <p className="text-muted-foreground leading-relaxed mb-8">
-                            From morning assembly to afternoon activities, every day at Oakwood Academy is filled with opportunities
+                            From morning assembly to afternoon activities, every day at Sunflower School is filled with opportunities
                             for learning, growth, and connection. Our students enjoy a balanced schedule that includes rigorous
                             academics, creative exploration, physical activity, and social engagement.
                         </p>
@@ -148,7 +148,7 @@ export default function CampusLifePage() {
             {/* CTA */}
             <section className="py-20 bg-muted/30">
                 <div className="container mx-auto px-4 lg:px-8 text-center">
-                    <h2 className="font-serif text-4xl font-semibold mb-6">Experience Oakwood Academy</h2>
+                    <h2 className="font-serif text-4xl font-semibold mb-6">Experience Sunflower School</h2>
                     <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                         Schedule a campus tour to see our facilities and meet our community
                     </p>

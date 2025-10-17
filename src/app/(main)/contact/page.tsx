@@ -86,7 +86,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Email</h3>
-                      <p className="text-sm text-muted-foreground">info@oakwoodacademy.edu</p>
+                      <p className="text-sm text-muted-foreground">info@sunflowerschool.edu</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
@@ -108,7 +108,7 @@ export default function ContactPage() {
               <Card className="p-6 bg-muted/30">
                 <h3 className="font-semibold mb-3">Schedule a Campus Tour</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Experience Oakwood Academy firsthand. Tours are available Monday through Friday.
+                  Experience Sunflower School firsthand. Tours are available Monday through Friday.
                 </p>
                 <Button className="w-full">Book a Tour</Button>
               </Card>

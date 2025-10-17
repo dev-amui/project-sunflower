@@ -102,7 +102,7 @@ export default function AboutPage() {
             <h2 className="font-serif text-4xl font-semibold mb-8 text-center">Our History</h2>
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p>
-                Founded in 1973, Oakwood Academy began as a small kindergarten with just 25 students and a vision to
+                Founded in 1973, Sunflower School began as a small kindergarten with just 25 students and a vision to
                 provide exceptional education in a nurturing environment.
               </p>
               <p>
@@ -123,7 +123,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <h2 className="font-serif text-4xl font-semibold mb-6">Join Our Community</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Discover how Oakwood Academy can help your child thrive
+            Discover how Sunflower School can help your child thrive
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>

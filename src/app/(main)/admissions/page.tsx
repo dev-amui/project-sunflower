@@ -12,7 +12,7 @@ export default function AdmissionsPage() {
           <div className="max-w-3xl">
             <h1 className="font-serif text-5xl lg:text-6xl font-semibold mb-6 text-balance">Admissions</h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Begin your journey with Oakwood Academy. We're excited to welcome your family to our community.
+              Begin your journey with Sunflower School. We're excited to welcome your family to our community.
             </p>
           </div>
         </div>
@@ -85,7 +85,7 @@ export default function AdmissionsPage() {
               <Card className="p-8">
                 <h3 className="font-serif text-2xl font-semibold mb-4">Financial Aid</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  We believe that a quality education should be accessible to all qualified students. Oakwood Academy
+                  We believe that a quality education should be accessible to all qualified students. Sunflower School
                   offers need-based financial aid to families who demonstrate financial need.
                 </p>
                 <ul className="space-y-2 text-muted-foreground text-sm">

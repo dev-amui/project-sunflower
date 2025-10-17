@@ -35,7 +35,7 @@ export function Features() {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="overflow-hidden group hover:shadow-xl transition-shadow"
+              className="overflow-hidden group hover:shadow-xl transition-shadow pt-0"
             >
               <div className="aspect-square overflow-hidden">
                 <img
