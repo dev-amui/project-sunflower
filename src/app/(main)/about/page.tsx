@@ -2,7 +2,6 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Award, Users, BookOpen, Target } from "lucide-react"
-import clsx from "clsx"
 
 export default function AboutPage() {
   return (
