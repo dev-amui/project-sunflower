@@ -10,11 +10,12 @@ import WardFiles from './partials/WardFiles'
 import GuardianDetails from './partials/GuardianDetails'
 import ApplicationActionContext from './partials/ApplicationActionContext'
 import ApplicationEvents from './partials/ApplicationEvents'
+import PaymentInformation from './partials/PaymentInformation'
 
 
-type TApplicationDetails = 'Ward Details' | 'Ward Files' | 'Guardian Details' | 'Invitations'
+type TApplicationDetails = 'Ward Details' | 'Ward Files' | 'Guardian Details' | 'Invitations' | 'Payment Information'
 
-const page = () => {
+const AdminApplicationDetailPage = () => {
     const { updatenoMaxWidthStatus } = useAppSettingsStore()
     // this is a useeffect that updates the no max width status to true when the page is mounted
     useEffect(() => {
@@ -57,7 +58,7 @@ const page = () => {
             <div className="applicationContentDets mx-auto maximum-width">
                 {/* view tabs */}
                 <div className="tabList my-6 h-[36px] sticky top-26 z-10 bg-[#f8f8fb] border-x-none w-full">
-                    <CustomNavTabs initialTab={currentView} clicked={(val: any) => { setcurrentView(val) }} tabs={['Ward Details', 'Ward Files', 'Guardian Details', 'Invitations']} />
+                    <CustomNavTabs initialTab={currentView} clicked={(val: string) => { setcurrentView(val as TApplicationDetails) }} tabs={['Ward Details', 'Ward Files', 'Guardian Details', 'Invitations','Payment Information']} />
                 </div>
 
 
@@ -72,6 +73,7 @@ const page = () => {
                         {/* Guardian Details */}
                         {currentView == 'Guardian Details' && <GuardianDetails />}
                         {currentView == 'Invitations' && <ApplicationEvents />}
+                        {currentView == 'Payment Information' && <PaymentInformation />}
                     </div>
 
                     {/* Actions Context */}
@@ -87,4 +89,4 @@ const page = () => {
     )
 }
 
-export default page
+export default AdminApplicationDetailPage

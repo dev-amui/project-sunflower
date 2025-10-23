@@ -3,10 +3,10 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 
-interface NavTabsProps {
-    tabs: string[],
-    initialTab?: string,
-    clicked: (value: string) => void
+interface NavTabsProps <T = string> {
+    tabs: T[],
+    initialTab?: T,
+    clicked: (value: T) => void
 }
 
 const CustomNavTabs = ({ tabs, initialTab, clicked }: NavTabsProps) => {

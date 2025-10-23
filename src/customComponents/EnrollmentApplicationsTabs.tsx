@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { useRouter } from 'next/navigation'
+// import { useRouter } from 'next/navigation'
 import CustomLinkTabs from './CustomLinkTabs'
 import { ILinkTab } from './CustomLinkTabs'
 
@@ -18,11 +18,11 @@ const settingsPages: ILinkTab<{ title: IApplicationsTitle, link: IApplicationsLi
 
 
 const EnrollmentApplicationsTabs = () => {
-    const router = useRouter()
+    // const router = useRouter()
 
-    const handleTabClicked = (value: any) => {
-        console.log('value', value)
-    }
+    // const handleTabClicked = (value: any) => {
+    //     console.log('value', value)
+    // }
 
     return (
         <div>

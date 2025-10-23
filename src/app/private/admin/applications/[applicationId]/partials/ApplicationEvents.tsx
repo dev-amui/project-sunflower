@@ -1,6 +1,5 @@
 'use client';
 
-import AppDivider from '@/customComponents/AppDivider';
 import { SmilePlusIcon } from 'lucide-react';
 import React from 'react'
 import EventCard from './EventCard';
