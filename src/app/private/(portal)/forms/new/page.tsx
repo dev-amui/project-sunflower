@@ -23,12 +23,16 @@ const ApplicationFormPage = () => {
     val?.();
   };
 
+  const tempNext = () => {
+    stepperRef.current?.next();
+  }
+
   const FormSteps: IStep[] = [
     {
       title: "Parent/Guardian Form",
       id: 1,
       content: (
-        <ApplicationSelectionStep goToNextStep={stepperRef.current?.next} />
+        <ApplicationSelectionStep goToNextStep={tempNext} />
       ),
       // description: 'Some descriptions',
       leftControlBtnLabel: "Cancel",
@@ -69,7 +73,7 @@ const ApplicationFormPage = () => {
         rightBtnClicked={handleRightButtonClick}
         classNames={{ cardClass: "bg-white/40 backdrop-blur-sm" }}
         getCurrentStep={setcurrentStep}
-        hideActionBtns={stepperRef.current?.getCurrentStep() === 1}
+        hideActionBtns={currentStep === 1}
       />
     </div>
   );

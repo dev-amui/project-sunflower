@@ -9,8 +9,7 @@ interface IApplicationSelectionStepProps {
 const ApplicationSelectionStep = ({
   goToNextStep,
 }: IApplicationSelectionStepProps) => {
-  const handleNextStep = (val: unknown) => {
-    console.log("val", val);
+  const handleNextStep = () => {
     // goToNextStep();
     goToNextStep?.();
   };
