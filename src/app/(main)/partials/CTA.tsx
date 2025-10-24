@@ -12,8 +12,8 @@ export function CTA() {
           Discover how Sunflower School can provide your child with an exceptional educational experience that prepares
           them for a bright future.
         </p>
-        <Button size="lg" variant="secondary" className="text-base" asChild>
-          <Link href="/contact">Schedule a Campus Tour</Link>
+        <Button size="lg" variant="primary" className="text-base text-white" asChild>
+          <Link href="/contact" className="bg-primary">Schedule a Campus Tour</Link>
         </Button>
       </div>
     </section>
