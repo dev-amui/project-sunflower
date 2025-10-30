@@ -21,11 +21,10 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center">
         <h1 className="font-serif font-light text-4xl md:text-6xl lg:text-7xl text-white mb-6 max-w-5xl mx-auto leading-tight text-balance">
-          Nurturing Excellence from Kindergarten to High School
+          Sunflower School
         </h1>
         <p className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Where young minds flourish, character is built, and futures are shaped
-          through innovative education and compassionate guidance.
+          HEAD, HEARTS AND HANDS, EMPOWERED BY THE SON
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" className="text-base">

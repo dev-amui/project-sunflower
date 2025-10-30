@@ -102,16 +102,101 @@ export default function AboutPage() {
             <h2 className="font-serif text-4xl font-semibold mb-8 text-center">Our History</h2>
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p>
-                Founded in 1973, Sunflower School began as a small kindergarten with just 25 students and a vision to
-                provide exceptional education in a nurturing environment.
+                Sunflower School is a Christian School, which 
+                opened its doors on the 24th September 
+                1994 originally as North Kaneshie Nursery and 
+                Crèche. Starting out in one small bungalow, the school 
+                has expanded over the years and is presently housed 
+                on two compounds approximately two hundred meters 
+                away from each other. 
               </p>
               <p>
-                Over the decades, we've grown into a comprehensive K-12 institution serving over 800 students, while
-                maintaining our commitment to personalized attention and academic excellence.
+                While running a private maternity Clinic (North Kaneshie 
+                Maternity Home) in the present administration 
+                building, a weekly satellite clinic of the Kaneshie 
+                Polyclinic (popularly called “weighing”) was held on the 
+                premises for babies and toddlers. I noticed at the time 
+                that many of the children who attended the clinic did 
+                not attend a nursery or that those who attended one, 
+                were not receiving the best care possible. I immediately 
+                felt that I could do a better job of providing holistic care 
+                to these children to cater for their academic, medical 
+                and spiritual needs.
               </p>
               <p>
-                Today, our alumni have gone on to attend prestigious universities and make meaningful contributions in
-                fields ranging from medicine and law to arts and technology.
+                I discussed the idea about starting a Nursery with 
+                the Senior Public Health nurse in charge Mrs. Sarah 
+                Amissah who readily agreed with me and was very 
+                supportive in seeing the idea through. She immediately 
+                started sensitizing the mothers who came to the clinic 
+                to the fact that a nursery school would be started here 
+                soon. The vision of Sunflower School was now born.
+              </p>
+              <p>
+                It took one year to seek God’s face as well as prepare 
+                the needed infrastructure for the project. God was 
+                very faithful because His provision was evident in 
+                the acquisition of all things necessary for the nursery 
+                in many tangible ways. And so it was that on the 
+                24th September, 1994 the doors of this great school 
+                opened for the first time and has remained so except 
+                during holiday periods, thus beginning a whole new 
+                era of investment into the lives of many children 
+                who have entered the school usually at crèche level 
+                knowing hardly anything and leaving (after writing 
+                the Basic Education Certificate Examination (BECE)) 
+                knowledgeable and confident.
+              </p>
+              <p>
+                According to records, the very first day of school saw the following pre-schoolers present:
+                <ul>
+                  <li>1. Faustina Adwapa</li>
+                  <li>2. Jeffery Sagoe</li>
+                  <li>3. Vida Ayensu</li>
+                  <li>4.Nana Osei Bosomtwi</li>
+                  <li>5. Benedicta Boateng</li>
+                  <li>6. Joel Acquah</li>
+                  <li>7. Nii Adjetey Akrong</li>
+                  <li>8. Amanda Baidoo</li>
+                </ul> 
+                Alongside were the following teachers; Mrs. Charity Dankyi Boateng and Pat Adjei. 
+              </p>
+              <p>
+                The nursery grew and as a result more teachers and 
+                care givers had to be employed. The first headmistress 
+                of the school was Mrs. Patricia Osei Bonsu, who 
+                commenced work at the beginning of July 1995. 
+              </p>
+              <p>
+                Around the same time, arrangements were being made 
+                to change the name of the school to Sunflower Early 
+                Childhood Development Educational Centre (SECDEC). 
+                The new name was duly registered with the Ghana 
+                Education Service in August 1995. The vision up to now 
+                was only a nursery and crèche.
+              </p>
+              <p>
+                At the beginning of the new academic year September 
+                1995, total enrolment was approximately sixty five with 
+                the breakdown as follows:
+                <ul>
+                  <li> • Under Eighteen Months - 6</li>
+                  <li> • Eighteen months to twenty four months - 17</li>
+                  <li> • Two to three years</li>
+                  <li> • Three to four and four years plus</li>
+                  <li> • Number of teachers and care givers - 27 - 15 - 5</li>
+                </ul>
+                This was a good indication that growth was taking 
+                place due to the quality of teaching the children 
+                were receiving.
+              </p>
+              <p>
+                The school observed its first open day and 
+                commissioning of a larger school kitchen which was 
+                dedicated by Rev. Dr. Fred Deegbe on 23rd October, 
+                1996. The same kitchen is still in use today and is still 
+                being used to produce delicious meals for the entire 
+                school.
               </p>
             </div>
           </div>

@@ -3,31 +3,31 @@ import { Card } from "@/components/ui/card"
 const programs = [
   {
     number: "01",
-    title: "Kindergarten",
+    title: "Preschool",
     description:
       "A nurturing environment where young learners discover the joy of learning through play-based education and foundational skills development.",
-    ages: "Ages 5-6",
+    ages: "Age 1 and Above",
   },
   {
     number: "02",
-    title: "Elementary School",
+    title: "Primary School",
     description:
       "Building strong academic foundations with engaging curriculum that fosters curiosity, creativity, and critical thinking skills.",
-    ages: "Grades 1-5",
+    ages: "Basic 1-6",
   },
   {
     number: "03",
-    title: "Middle School",
+    title: "Junior High School",
     description:
       "Guiding students through transformative years with comprehensive programs that develop independence, leadership, and academic excellence.",
-    ages: "Grades 6-8",
+    ages: "Basic 7-9",
   },
   {
     number: "04",
-    title: "High School",
+    title: "Special Educational Needs (SEN)",
     description:
-      "Preparing students for college and beyond with rigorous academics, advanced placement courses, and personalized college counseling.",
-    ages: "Grades 9-12",
+      "Every learner is seen and supported. Individualized plans, small-group interventions, therapy referral, and classroom accommodations help each child grow with confidence.",
+    ages: "Preschool to Basic 9",
   },
 ]
 
@@ -40,8 +40,14 @@ export function Programs() {
             Our Educational Programs
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Comprehensive education tailored to each developmental stage, ensuring every student reaches their full
-            potential.
+            Sunflower School offers two strong learning pathways the <b>Ghana Education Service (GES)</b> National Curriculum and the 
+             <b> Pearson Edexcel</b> international pathway within one caring community. Our GES track builds solid foundations in 
+            literacy, numeracy, science, ICT, and the arts with continuous assessment toward local progression. 
+            The Pearson Edexcel route emphasizes inquiry, global benchmarks, and skills based assessment with 
+            a clear path from Primary through Lower Secondary (and onwards to IGCSE). Families can choose the pathway that 
+            best fits their child and transition when appropriate, with guidance from our team. Across both tracks, students enjoy 
+            rich enrichment in Robotics & Coding, reading culture, arts, sports, leadership, and values education so every 
+            learner grows in confidence and capability.
           </p>
         </div>
 

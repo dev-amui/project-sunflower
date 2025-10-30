@@ -65,9 +65,9 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold mb-1">Address</h3>
                       <p className="text-sm text-muted-foreground">
-                        123 Education Lane
+                        27 Korlegon Street, North Kaneshie
                         <br />
-                        Springfield, ST 12345
+                        P. O. Box 193, Dk, Darkuman, Accra
                       </p>
                     </div>
                   </div>
@@ -77,7 +77,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Phone</h3>
-                      <p className="text-sm text-muted-foreground">(555) 123-4567</p>
+                      <p className="text-sm text-muted-foreground">030 701 0222</p> 
+                      <p className="text-sm text-muted-foreground">030 702 0640</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
@@ -86,7 +87,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Email</h3>
-                      <p className="text-sm text-muted-foreground">info@sunflowerschool.edu</p>
+                      <p className="text-sm text-muted-foreground">sunflower@sunflower.edu.gh</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
@@ -98,7 +99,7 @@ export default function ContactPage() {
                       <p className="text-sm text-muted-foreground">
                         Monday - Friday
                         <br />
-                        8:00 AM - 4:00 PM
+                        8:00 AM - 5:00 PM
                       </p>
                     </div>
                   </div>
